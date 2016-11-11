@@ -1,0 +1,30 @@
+* {
+  padding: 0px;
+  margin: 0px;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: rgb(100, 100, 100);
+}
+
+nav {
+  display: inline-flex;
+  justify-content: space-between;
+  width: 100vw;
+  background-color: rgb(45, 45, 45);
+  padding: 5px;
+  top:0;
+  right: 0;
+}
+
+footer {
+  width: 100vw;
+}
+
+.preview {
+  display: flex;
+  justify-content: center;
+  align-content: flex-start;
+  flex-wrap: wrap;
+}

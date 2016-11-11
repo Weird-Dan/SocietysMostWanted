@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>{% block Title%}Society's Most Wanted{% endblock %}</title>
+    {% load staticfiles %}
+    <link rel="stylesheet" type="text/css" href="{% static 'smw/style.css' %}">
+  </head>
+  <body>
+    <!-- create base html structure -->
+    <!-- Create navbar -->
+    <nav>
+      <div class="navbar">
+        <a href="{% url 'smw:index' %}">SMW</a>
+        <a href="{% url 'smw:flow' %}">Flow</a>
+        <a href="{% url 'smw:categories' %}">Categories</a>
+      </div>
+      <form class="" role="search" method="post" action="{% url 'smw:search' %}">
+            {% csrf_token %}
+            <div class="">
+              <input type="text" name="q" value="" class="">
+            </div>
+            <button type="submit" name="button" class="">Search</button>
+    </nav>
+    <section>
+
+
+    {% block body %}
+    {% endblock %}
+    </section>
+    <!-- Create Footer-->
+    <footer></footer>
+  </body>
+</html>

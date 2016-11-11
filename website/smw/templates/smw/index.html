@@ -1,0 +1,23 @@
+{% extends 'smw/base.html' %}
+{% block body %}
+
+<!--
+Write your html Here!
+-->
+
+
+    {% for idea in object_list %}
+    <div class="card">
+      <a href="{% url 'smw:idea' idea.pk %}">{{idea.Title}}</a>
+      <p>
+        {{idea.Idea}}
+      </p>
+
+      <p>
+        w{{idea.Wants}} s{{idea.Shlts}} v{{idea.Views}} c{{idea.comment_count}}
+      </p>
+    </div>
+    {% endfor %}
+
+
+{% endblock%}
