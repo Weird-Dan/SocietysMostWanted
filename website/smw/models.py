@@ -5,14 +5,15 @@ from datetime import datetime
 # Create your models here.
 """
 User
-Username		(CharField, Unique)
-Name			(CharField)
 Profession		(CharField)
 Interests		(CharField)
 Image			(ImageField)
-E-mail			(EmailField, Unique)
-Sign_Date		(DateTimeField)
 """
+class extUser(models.Model):
+    User = models.ForeignKey(User, unique=True)
+    Profession = models.CharField(max_length=50, null=True)
+    Intrests = models.CharField(max_length=100, null=True)
+    Image = models.ImageField(null=True)
 
 """
 Category of posts
