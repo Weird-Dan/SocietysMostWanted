@@ -1,6 +1,7 @@
 from django.db import models
 from django.contrib.auth.models import User
 from datetime import datetime
+from django.urls import reverse
 
 # Create your models here.
 
@@ -13,6 +14,9 @@ class Category(models.Model):
     Description = models.CharField(max_length=500)
     Icon_Image = models.ImageField(blank=True, null=True)
     Background_Image = models.ImageField(blank=True, null=True)
+
+    def get_absolute_url(self):
+        return reverse("smw:cat", kwargs={'pk':self.pk})
 
     def post_count(self):
          return self.post_set.count()
@@ -29,7 +33,7 @@ class Post(models.Model):
     Category = models.ForeignKey(Category, on_delete=models.CASCADE)
     Title = models.CharField(max_length=200)
     Idea = models.TextField(unique=True)
-    Tags = models.CharField(max_length=200)
+    Tags = models.CharField(max_length=200, blank=True, null=True)
     Views = models.IntegerField(default=0)
     Wants = models.IntegerField(default=0)
     Shlts = models.IntegerField(default=0)
