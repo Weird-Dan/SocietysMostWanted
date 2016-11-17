@@ -1,5 +1,6 @@
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import render, get_object_or_404, redirect
 from django.views import generic, View
+from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from .models import *
 
 # Create your views here.
@@ -65,3 +66,22 @@ def search(request):
         return render(request, "smw/flow.html", {"object_list":object_list, "q":txt})
 
     return redirect("smw:flow")
+
+class CategoryCreate(CreateView):
+    model = Category
+    fields =["Category", "Description", "Icon_Image"]
+
+"""
+Create Post Form View
+"""
+class PostCreate(CreateView):
+    model = Post
+    fields = ["User", "Category","Title", "Idea", "Tags"]
+
+    """
+    def form_valid(self, form):
+        pst = Post(User=self.request.user, Category=form.Category, Title=form.Title, Idea=form.Idea, Tags=form.Tags)
+        pst.save()
+        print("created new post ")
+        return redirect("smw:index")
+    """

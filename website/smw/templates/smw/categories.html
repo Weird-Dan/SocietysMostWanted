@@ -8,8 +8,11 @@ Write your html Here!
 
 {% for category in object_list %}
 <div class="card">
+
   <a href="{% url 'smw:cat' category.pk %}">{{category.Category}}</a>
-  <img src="{{category.Icon_Image.url}}" alt="" />
+    {%if category.Icon_image%}
+      <img src="{{category.Icon_Image.url}}" alt="" />
+    {%endif%}
   <p>
     {{category.Description}}
   </p>

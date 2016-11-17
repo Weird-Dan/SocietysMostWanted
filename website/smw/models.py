@@ -11,8 +11,8 @@ Category of posts
 class Category(models.Model):
     Category = models.CharField(max_length=100, unique=True)
     Description = models.CharField(max_length=500)
-    Icon_Image = models.ImageField()
-    Background_Image = models.ImageField()
+    Icon_Image = models.ImageField(blank=True, null=True)
+    Background_Image = models.ImageField(blank=True, null=True)
 
     def post_count(self):
          return self.post_set.count()

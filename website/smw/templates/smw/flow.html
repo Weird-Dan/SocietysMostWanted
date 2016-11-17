@@ -9,7 +9,9 @@ Write your html Here!
 {% endif %}
 
 {% if category %}
-<img src="{{category.Background_Image.url}}" alt="Background_Image"/>
+  {% if category.Background_Image%}
+    <img src="{{category.Background_Image.url}}" alt="Background_Image"/>
+  {% endif%}
 {%endif%}
 {% for idea in object_list %}
 <div class="card">

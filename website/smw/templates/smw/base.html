@@ -14,6 +14,7 @@
         <a href="{% url 'smw:index' %}">SMW</a>
         <a href="{% url 'smw:flow' %}">Flow</a>
         <a href="{% url 'smw:categories' %}">Categories</a>
+        <!--<a href="{% url 'smw:create' %}">Create</a>-->
       </div>
       <form class="" role="search" method="post" action="{% url 'smw:search' %}">
             {% csrf_token %}
