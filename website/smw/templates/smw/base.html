@@ -14,6 +14,12 @@
         <a href="{% url 'smw:index' %}">SMW</a>
         <a href="{% url 'smw:flow' %}">Flow</a>
         <a href="{% url 'smw:categories' %}">Categories</a>
+        {% if request.user.is_authenticated %}
+        <a href="{% url 'smw:create' %}">Create</a>
+        <a href="{% url 'userAuth:user' request.user.pk %}">@ME</a>
+        {% include 'userAuth/logout_form.html' %}
+
+        {%endif%}
         <!--<a href="{% url 'smw:create' %}">Create</a>-->
       </div>
       <form class="" role="search" method="post" action="{% url 'smw:search' %}">
@@ -24,9 +30,6 @@
             <button type="submit" name="button" class="">Search</button>
     </nav>
 
-    <div id="Title">
-      <h1>WELCOME TO "SOCIETY'S MOST WANTED" A SITE FOR SPREADING IDEAS</h1>
-    </div>
 
     <section>
 

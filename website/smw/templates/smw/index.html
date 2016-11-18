@@ -4,8 +4,17 @@
 <!--
 Write your html Here!
 -->
+<div id="Title">
+  <h1>WELCOME TO "SOCIETY'S MOST WANTED" A SITE FOR SPREADING IDEAS</h1>
+</div>
 
+    <h3>some text</h3>
+    {% if request.user.is_authenticated %}
 
+    {% else %}
+      {% include 'userAuth/login_form.html' %}
+    {% endif %}
+<hr>
     {% for idea in object_list %}
     <div class="card">
       <a href="{% url 'smw:idea' idea.pk %}">{{idea.Title}}</a>
@@ -18,6 +27,7 @@ Write your html Here!
       </p>
     </div>
     {% endfor %}
+<hr>
 
 
 {% endblock%}
