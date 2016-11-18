@@ -19,7 +19,30 @@ nav {
 }
 
 footer {
-  width: 100vw;
+  margin: auto;
+  position: fixed;
+  width: 100%;
+  bottom: 0px;
+  
+
+}
+
+ul#footerList{
+  text-align: center;
+  padding-bottom: 1vw;
+  list-style-type: none;
+}
+
+a{
+  text-decoration: none;
+}
+
+#Title{
+  margin: auto;
+  text-align: center;
+  padding-top: 2vw;
+  font-size: 1vw;
+  width: 50%
 }
 
 .preview {
@@ -27,4 +50,15 @@ footer {
   justify-content: center;
   align-content: flex-start;
   flex-wrap: wrap;
+}
+
+@media screen and (max-width: 480px){
+  
+  footer{
+    font-size: 3vw;
+  }
+
+  #Title{
+    font-size: 2vw;
+  }
 }

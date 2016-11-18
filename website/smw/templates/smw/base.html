@@ -14,12 +14,16 @@
         <a href="{% url 'smw:index' %}">SMW</a>
         <a href="{% url 'smw:flow' %}">Flow</a>
         <a href="{% url 'smw:categories' %}">Categories</a>
+<<<<<<< HEAD
         {% if request.user.is_authenticated %}
         <a href="{% url 'smw:create' %}">Create</a>
         <a href="{% url 'userAuth:user' request.user.pk %}">@ME</a>
         {% include 'userAuth/logout_form.html' %}
 
         {%endif%}
+=======
+        <!--<a href="{% url 'smw:create' %}">Create</a>-->
+>>>>>>> origin/master
       </div>
       <form class="" role="search" method="post" action="{% url 'smw:search' %}">
             {% csrf_token %}
@@ -27,8 +31,12 @@
               <input type="text" name="q" value="" class="">
             </div>
             <button type="submit" name="button" class="">Search</button>
-        </form>
     </nav>
+
+    <div id="Title">
+      <h1>WELCOME TO "SOCIETY'S MOST WANTED" A SITE FOR SPREADING IDEAS</h1>
+    </div>
+
     <section>
 
 
@@ -36,6 +44,13 @@
     {% endblock %}
     </section>
     <!-- Create Footer-->
-    <footer></footer>
+    <footer>
+      <ul id="footerList">
+        <li><p>CREATED BY 4 LAZY SWEDES</p></li>
+        <li><a href="">ABOUT</a></li>
+        <li><a href="">SUPPORT</a></li>
+        <li><p>THANKS FOR VISITING OUR SITE</p></li>
+      </ul>
+    </footer>
   </body>
 </html>
