@@ -31,6 +31,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    'userAuth.apps.UserauthConfig',
     'smw.apps.SmwConfig',
     'django.contrib.admin',
     'django.contrib.auth',

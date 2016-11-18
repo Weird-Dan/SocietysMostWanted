@@ -4,8 +4,13 @@
 <!--
 Write your html Here!
 -->
+    <h3>some text</h3>
+    {% if request.user.is_authenticated %}
 
-
+    {% else %}
+      {% include 'userAuth/login_form.html' %}
+    {% endif %}
+<hr>
     {% for idea in object_list %}
     <div class="card">
       <a href="{% url 'smw:idea' idea.pk %}">{{idea.Title}}</a>
@@ -18,6 +23,7 @@ Write your html Here!
       </p>
     </div>
     {% endfor %}
+<hr>
 
 
 {% endblock%}

@@ -4,16 +4,30 @@
 <!--
 Write your html Here!
 -->
+
+<!-- Idea-->
 <h2>{{post.Title}}</h2>
 <p>
   {{post.Idea}}
 </p>
-<a href="#">@{{post.User.username}}</a>
+<a href="{% url 'userAuth:user' post.User.pk %}">@{{post.User.username}}</a>
 <p>
-  w{{post.Wants}} s{{post.Shlts}} v{{post.Views}} Uploaded{{post.Post_Date}}
+  w{{post.Wants}} s{{post.Shlts}} v{{post.Views}} Uploaded {{post.Post_Date}}
 </p>
+
+<!-- comment-->
+{% if request.user.is_authenticated%}
+<h4>Comment!</h4>
+<form class="" action="" method="post">
+
+</form>
+{% else %}
+<h5>Login to Comment!</h5>
+{% endif%}
+
+<!-- Comments-->
 {% for comment in comments %}
-<a href="#">@{{comment.User.username}}</a>
+<a href="{% url 'userAuth:user' comment.User.pk %}">@{{comment.User.username}}</a>
   <p>
     {{comment.Text}}
   </p>
@@ -23,7 +37,4 @@ Write your html Here!
   </p>
 {% endfor %}
 
-{% if request.user.is_authenticated%}
-<h4>Comment!</h4>
-{% endif%}
 {% endblock%}

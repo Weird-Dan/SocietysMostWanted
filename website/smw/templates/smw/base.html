@@ -16,6 +16,9 @@
         <a href="{% url 'smw:categories' %}">Categories</a>
         {% if request.user.is_authenticated %}
         <a href="{% url 'smw:create' %}">Create</a>
+        <a href="{% url 'userAuth:user' request.user.pk %}">@ME</a>
+        {% include 'userAuth/logout_form.html' %}
+
         {%endif%}
       </div>
       <form class="" role="search" method="post" action="{% url 'smw:search' %}">
