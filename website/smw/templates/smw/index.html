@@ -4,30 +4,36 @@
 <!--
 Write your html Here!
 -->
-<div id="Title">
-  <h1>WELCOME TO "SOCIETY'S MOST WANTED" A SITE FOR SPREADING IDEAS</h1>
+
+<div id="titleCont">
+    <h1>WELCOME TO "SOCIETY'S MOST WANTED" A SITE FOR SPREADING IDEAS</h1>
 </div>
 
-    <h3>some text</h3>
-    {% if request.user.is_authenticated %}
+<form id="loginCont">
+{% if request.user.is_authenticated %}
 
-    {% else %}
-      {% include 'userAuth/login_form.html' %}
-    {% endif %}
+{% else %}
+<label>Username Password</label>
+{% include 'userAuth/login_form.html' %}
+{% endif %}
+</form>
+
 <hr>
-    {% for idea in object_list %}
-    <div class="card">
-      <a href="{% url 'smw:idea' idea.pk %}">{{idea.Title}}</a>
-      <p>
+
+{% for idea in object_list %}
+
+<div class="card">
+    <a href="{% url 'smw:idea' idea.pk %}">{{idea.Title}}</a>
+    <p>
         {{idea.Idea}}
-      </p>
+    </p>
 
-      <p>
+    <p>
         w{{idea.Wants}} s{{idea.Shlts}} v{{idea.Views}} c{{idea.comment_count}}
-      </p>
-    </div>
-    {% endfor %}
-<hr>
+    </p>
+</div>
 
+{% endfor %}
+<hr>
 
 {% endblock%}

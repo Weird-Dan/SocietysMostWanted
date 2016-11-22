@@ -1,50 +1,58 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8">
-    <title>{% block Title%}Society's Most Wanted{% endblock %}</title>
-    {% load staticfiles %}
-    <link rel="stylesheet" type="text/css" href="{% static 'smw/style.css' %}">
-  </head>
-  <body>
-    <!-- create base html structure -->
-    <!-- Create navbar -->
-    <nav>
-      <div class="navbar">
-        <a href="{% url 'smw:index' %}">SMW</a>
-        <a href="{% url 'smw:flow' %}">Flow</a>
-        <a href="{% url 'smw:categories' %}">Categories</a>
-        {% if request.user.is_authenticated %}
-        <a href="{% url 'smw:create' %}">Create</a>
-        <a href="{% url 'userAuth:user' request.user.pk %}">@ME</a>
-        {% include 'userAuth/logout_form.html' %}
+    <head>
+        <meta charset="utf-8">
+        <title>{% block Title%}Society's Most Wanted{% endblock %}</title>
+        {% load staticfiles %}
+        <link rel="stylesheet" type="text/css" href="{% static 'smw/style.css' %}"/>
+    </head>
+    <body>
+        <!-- create base html structure -->
+        <!-- Create navbar -->
+        <nav>
+            <div class="navbar">
+                <a href="{% url 'smw:index' %}" class="navItem">SMW</a>
+                <a href="{% url 'smw:flow' %}" class="navItem">Flow</a>
+                <a href="{% url 'smw:categories' %}" class="navItem">Categories</a>
 
-        {%endif%}
-        <!--<a href="{% url 'smw:create' %}">Create</a>-->
-      </div>
-      <form class="" role="search" method="post" action="{% url 'smw:search' %}">
-            {% csrf_token %}
-            <div class="">
-              <input type="text" name="q" value="" class="">
+                {% if request.user.is_authenticated %}
+
+                <a href="{% url 'smw:create' %}">Create</a>
+                <a href="{% url 'userAuth:user' request.user.pk %}">@ME</a>
+
+                {% include 'userAuth/logout_form.html' %}
+
+                {%endif%}
+                <!--<a href="{% url 'smw:create' %}">Create</a>-->
             </div>
-            <button type="submit" name="button" class="">Search</button>
-    </nav>
 
+            <div id="formCont">
+                <form class="formSearch" role="search" method="post" action="{% url 'smw:search' %}">
 
-    <section>
+                    {% csrf_token %}
 
+                    <input id="searchBar" type="text" name="q" value="">
 
-    {% block body %}
-    {% endblock %}
-    </section>
-    <!-- Create Footer-->
-    <footer>
-      <ul id="footerList">
-        <li><p>CREATED BY 4 LAZY SWEDES</p></li>
-        <li><a href="">ABOUT</a></li>
-        <li><a href="">SUPPORT</a></li>
-        <li><p>THANKS FOR VISITING OUR SITE</p></li>
-      </ul>
-    </footer>
-  </body>
+                    <button type="submit" name="button" class="button">Search</button>
+
+                </form>
+            </div>
+        </nav>
+
+        <div id="sectCont">
+            <section>
+                {% block body %}
+                {% endblock %}
+            </section>
+        </div>
+        <!-- Create Footer-->
+        <footer>
+            <ul id="footerList">
+                <li><p>CREATED BY 4 LAZY SWEDES</p></li>
+                <li><a href="">ABOUT</a></li>
+                <li><a href="">SUPPORT</a></li>
+                <li><p>THANKS FOR VISITING OUR SITE</p></li>
+            </ul>
+        </footer>
+    </body>
 </html>
