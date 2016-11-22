@@ -2,16 +2,12 @@
     padding: 0px;
     margin: 0px;
     box-sizing: border-box;
-    font-family: fantasy;
+    font-family: "Commodore Angled v1.2", serif;
 }
 
 a{
     text-decoration: none;
 }
-
-/*----------------------------------------------------------------------
---------------------------base.html css---------------------------------
-------------------------------------------------------------------------*/
 
 body {
     background-color: rgb(100, 100, 100);

@@ -13,4 +13,5 @@ urlpatterns =[
     url(r'^(?P<pk>[0-9]+)/$', views.Idea , name='idea'),#detailed view of a post
     url(r'^create/$', views.PostCreate.as_view(), name="create"),
     url(r'^cctv/$', views.CategoryCreate.as_view(), name="cctv"),
+    url(r'^about', views.AboutView.as_view(), name='about'),#about
 ]

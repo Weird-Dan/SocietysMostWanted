@@ -85,3 +85,12 @@ class PostCreate(CreateView):
         print("created new post ")
         return redirect("smw:index")
     """
+
+"""
+AboutView
+"""
+class AboutView(generic.ListView):
+    template_name = "smw/about.html"
+
+    def get_queryset(self):
+        return Post.objects.order_by('-Wants')[:6]
