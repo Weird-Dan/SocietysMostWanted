@@ -161,6 +161,7 @@ label{
 
 @media screen and (max-width: 480px){
 
+
     footer{
         font-size: 3vw;
     }
@@ -168,4 +169,11 @@ label{
     #Title{
         font-size: 2vw;
     }
+  footer{
+    font-size: 3vw;
+  }
+
+  #Title{
+    font-size: 2vw;
+  }
 }
