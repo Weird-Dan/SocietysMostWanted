@@ -17,8 +17,7 @@ Write your html Here!
 {% if request.user.is_authenticated %}
 
 {% else %}
-<label>Username Password</label>
-{% include 'userAuth/login_form.html' %}
+<a href="{% url 'attest:lgn' %}">Login</a>
 {% endif %}
 </form>
 -->

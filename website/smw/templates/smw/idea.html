@@ -10,7 +10,7 @@ Write your html Here!
 <p>
   {{post.Idea}}
 </p>
-<a href="{% url 'userAuth:user' post.User.pk %}">@{{post.User.username}}</a>
+<a href="{% url 'attest:detail' post.User.pk %}">@{{post.User.username}}</a>
 <p>
   w{{post.Wants}} s{{post.Shlts}} v{{post.Views}} Uploaded {{post.Post_Date}}
 </p>
@@ -27,7 +27,7 @@ Write your html Here!
 
 <!-- Comments-->
 {% for comment in comments %}
-<a href="{% url 'userAuth:user' comment.User.pk %}">@{{comment.User.username}}</a>
+<a href="{% url 'attest:detail' comment.User.pk %}">@{{comment.User.username}}</a>
   <p>
     {{comment.Text}}
   </p>
