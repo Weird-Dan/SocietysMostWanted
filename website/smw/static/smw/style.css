@@ -2,7 +2,7 @@
     padding: 0px;
     margin: 0px;
     box-sizing: border-box;
-    font-family: "Calibri", serif;
+    font-family: "Lucida Console", serif;
     font-weight: 100;
 }
 
@@ -50,6 +50,11 @@ form{
 
 .panel-title {
 	padding: 10px;
+}
+
+.panel-body{
+    overflow: auto;
+    word-break: break-all;
 }
 
 .title{

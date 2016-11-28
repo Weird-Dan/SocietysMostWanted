@@ -15,7 +15,6 @@
     <body>
         <!-- create base html structure -->
         <!-- Create navbar -->
-<<<<<<< HEAD
         
             <ul class="nav nav-pills">
                 <li class="navigator" role="presentation"><a href="{% url 'smw:index' %}">SMW</a></li>
@@ -24,12 +23,6 @@
     
                 <div>
                 <form class="col-md-4 pull-right" role="search" method="post" action="{% url 'smw:search' %}">
-=======
-        <nav>
-            <div class="navbar">
-                <a href="{% url 'smw:index' %}" class="navItem">SMW</a>
-                <a href="{% url 'smw:flow' %}" class="navItem">Flow</a>
-                <a href="{% url 'smw:categories' %}" class="navItem">Categories</a>
 
                 {% if request.user.is_authenticated %}
 
@@ -40,12 +33,6 @@
 
                 {%endif%}
                 <!--<a href="{% url 'smw:create' %}">Create</a>-->
-            </div>
-
-            <div id="formCont">
-                <form class="formSearch" role="search" method="post" action="{% url 'smw:search' %}">
-
->>>>>>> 19a0739326182f93e80eb3b254461a6e332d745a
                     {% csrf_token %}
                     <input type="text" name="input" class="form-control">
                     <button type="submit" name="button" class="btn btn-primary">Search</button>

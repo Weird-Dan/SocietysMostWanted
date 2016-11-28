@@ -9,22 +9,26 @@ Write your html Here!
 {% endif %}
 
 {% if category %}
-  {% if category.Background_Image%}
-    <img src="{{category.Background_Image.url}}" alt="Background_Image"/>
-  {% endif%}
+{% if category.Background_Image%}
+<img src="{{category.Background_Image.url}}" alt="Background_Image"/>
+{% endif%}
 {%endif%}
 {% for idea in object_list %}
-<div class="card">
-  <a href="{% url 'smw:idea' idea.pk %}">{{idea.Title}}</a>
-  <p>
-    {{idea.Idea}}
-  </p>
 
-  <p>
-    w{{idea.Wants}} s{{idea.Shlts}} v{{idea.Views}} c{{idea.comment_count}}
-  </p>
+<div class="panel panel-default col-md-3 panelCust">
+    <p class="panel panel-title col-md-12 title"><a href="{% url 'smw:idea' idea.pk %}">{{idea.Title}}</a></p>
+    <div class="panel-body">
+        <p>{{idea.Idea}}</p>
+    </div>
+    <center>
+        <div class="panel panel-default col-md-11">
+            <p class="glyphicon glyphicon-thumbs-up">{{idea.Wants}}</p>
+            <p class="glyphicon glyphicon-thumbs-down">{{idea.Shlts}}</p>
+            <p class="glyphicon glyphicon-eye-open">{{idea.Views}}</p>
+            <p class="glyphicon glyphicon-comment">{{idea.comment_count}}</p>
+        </div>
+    </center>
 </div>
-
 {%endfor%}
 
 {% endblock%}
