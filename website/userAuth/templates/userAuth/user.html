@@ -2,7 +2,7 @@
 {% block body %}
 
 <!-- user page -->
-<img src="{{eu.Image.url}}" alt="{{user.username}}" />
+{% if eu.Image %}<img src="{{eu.Image.url}}" alt="{{user.username}}" />{% endif %}
 <h3>{{user.username}}</h3>
 <p>
   {{eu.Profession}}
