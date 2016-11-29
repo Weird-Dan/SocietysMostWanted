@@ -19,7 +19,7 @@ def Login(request):
         login(request, user)
         return redirect("smw:index")
     else:
-        return redirect("smw:index")
+        return redirect("attest:lgn")
 
 def Logout(request):
     logout(request)
@@ -39,7 +39,12 @@ def Register(request):
                 if len(User.objects.filter(email=em))==0 and len(User.objects.filter(username=un))==0:
                     user = User.objects.create_user(un, em, ps1)
                     user.save()
-
+                    usr = authenticate(username=un, password=ps1)
+                    if user is not None:
+                        login(request, user)
+                        return redirect("smw:index")
+                    else:
+                        return redirect("attest:lgn")
                 #else:
         #else:
-    return render(request, 'smw/index.html', {})
+    return render(request, 'attest:lgn', {})

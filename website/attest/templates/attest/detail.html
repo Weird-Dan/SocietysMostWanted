@@ -1,5 +1,14 @@
 {% extends 'smw/base.html' %}
 {% block body %}
-<p>hello {{User.username}}</p>
+<h2>{{User.username}}</h2>
+
+<p>{{User.Profile_set.Profession}}</p>
+
+<p>{{User.Profile_set.Inrests}}</p>
+
+
+{% if User.Profile_set.Image.url %}
+<img src="{{User.Profile_set.Image.url}}" alt="Profile-Image">
+{% endif %}
 
 {% endblock%}

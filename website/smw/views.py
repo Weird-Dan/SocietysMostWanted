@@ -62,7 +62,7 @@ the flow view of a Search
 def search(request):
     if request.method == 'POST':
         txt = request.POST.get("q", None)
-        object_list = Post.objects.filter(Idea__icontains=txt)
+        object_list = Post.objects.filter(Idea__icontains=txt)|Post.objects.filter(Title__icontains=txt)|Post.objects.filter(Tags__icontains=txt)
         return render(request, "smw/flow.html", {"object_list":object_list, "q":txt})
 
     return redirect("smw:flow")
@@ -78,13 +78,11 @@ class PostCreate(CreateView):
     model = Post
     fields = ["Category","Title", "Idea", "Tags"]
 
-
     def form_valid(self, form):
         pst = Post(User=self.request.user, Category=form.cleaned_data['Category'], Title=form.cleaned_data['Title'], Idea=form.cleaned_data['Idea'], Tags=form.cleaned_data['Tags'])
         pst.save()
         print("created new post '"+form.cleaned_data['Title']+"'")
         return redirect("smw:index")
-
 
 """
 AboutView
