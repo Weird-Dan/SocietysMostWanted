@@ -15,12 +15,12 @@
     <body>
         <!-- create base html structure -->
         <!-- Create navbar -->
-        
+
             <ul class="nav nav-pills">
                 <li class="navigator" role="presentation"><a href="{% url 'smw:index' %}">SMW</a></li>
                 <li class="navigator" role="presentation"><a href="{% url 'smw:flow' %}">Flow</a></li>
                 <li class="navigator" role="presentation"><a href="{% url 'smw:categories' %}">Categories</a></li>
-    
+
                 <div>
                 <form class="col-md-4 pull-right" role="search" method="post" action="{% url 'smw:search' %}">
 
@@ -42,13 +42,13 @@
             {% if request.user.is_authenticated %}
 
             <a href="{% url 'smw:create' %}">Create</a>
-            <a href="{% url 'userAuth:user' request.user.pk %}">@ME</a>
+            <a href="{% url 'attest:detail' request.user.pk %}">@ME</a>
 
-            {% include 'userAuth/logout_form.html' %}
+            {% include 'attest/logout_form.html' %}
 
             {%endif%}
             <!--<a href="{% url 'smw:create' %}">Create</a>-->
-        
+
         {% block body %}
         {% endblock %}
 
