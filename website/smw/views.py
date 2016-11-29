@@ -76,15 +76,15 @@ Create Post Form View
 """
 class PostCreate(CreateView):
     model = Post
-    fields = ["User", "Category","Title", "Idea", "Tags"]
+    fields = ["Category","Title", "Idea", "Tags"]
 
-    """
+
     def form_valid(self, form):
-        pst = Post(User=self.request.user, Category=form.Category, Title=form.Title, Idea=form.Idea, Tags=form.Tags)
+        pst = Post(User=self.request.user, Category=form.cleaned_data['Category'], Title=form.cleaned_data['Title'], Idea=form.cleaned_data['Idea'], Tags=form.cleaned_data['Tags'])
         pst.save()
-        print("created new post ")
+        print("created new post '"+form.cleaned_data['Title']+"'")
         return redirect("smw:index")
-    """
+
 
 """
 AboutView
