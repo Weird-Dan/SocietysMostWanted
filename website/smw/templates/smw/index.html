@@ -1,40 +1,42 @@
 {% extends 'smw/base.html' %}
 {% block body %}
 
+<head>
+    <link rel="stylesheet" type="text/css" href="../../static/smw/style.css">
+</head>
+
 <!--
 Write your html Here!
 -->
 
-<div id="titleCont">
-    <h1>WELCOME TO "SOCIETY'S MOST WANTED" A SITE FOR SPREADING IDEAS</h1>
+<div class="page-header col-md-8 col-md-offset-2">
+    <h1>WELCOME TO "SOCIETIES MOST WANTED" <small>A SITE FOR SPREADING IDEAS</small></h1>
 </div>
 
-<form id="loginCont">
+<!--<form id="loginCont">
 {% if request.user.is_authenticated %}
 
 {% else %}
 <a href="{% url 'attest:lgn' %}">Login</a>
 {% endif %}
 </form>
-
-<hr>
-<br>
+-->
 
 {% for idea in object_list %}
-
-<div class="card">
-    <a href="{% url 'smw:idea' idea.pk %}">{{idea.Title}}</a>
-    <p>
-        {{idea.Idea}}
-    </p>
-
-    <p>
-        w{{idea.Wants}} s{{idea.Shlts}} v{{idea.Views}} c{{idea.comment_count}}
-    </p>
+<div class=" panel panel-default col-md-3 panelCust">
+    <p class="panel panel-title col-md-12 title"><a href="{% url 'smw:idea' idea.pk %}">{{idea.Title}}</a></p>
+    <div class="panel-body">
+        <p>{{idea.Idea}}</p>
+    </div>
+    <center>
+        <div class="panel panel-default col-md-11">
+            <p class="glyphicon glyphicon-thumbs-up"> {{idea.Wants}}</p>
+            <p class="glyphicon glyphicon-thumbs-down"> {{idea.Shlts}}</p>
+            <p class="glyphicon glyphicon-eye-open"> {{idea.Views}}</p>
+            <p class=" glyphicon glyphicon-comment"> {{idea.comment_count}}</p>
+        </div>
+    </center>
 </div>
-
 {% endfor %}
-<br>
-<hr>
 
 {% endblock%}

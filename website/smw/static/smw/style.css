@@ -2,178 +2,75 @@
     padding: 0px;
     margin: 0px;
     box-sizing: border-box;
-    font-family: "Commodore Angled v1.2", serif;
+    font-family: "Lucida Console", serif;
+    font-weight: 100;
 }
 
-a{
-    text-decoration: none;
-}
-
-body {
+body{
     background-color: rgb(100, 100, 100);
 }
 
-nav{
+.nav{
     background-color: rgb(45, 45, 45);
-    //border: 1px solid crimson;
     font-size: 30px;
-}
-
-.navbar{
-    //border: 1px solid crimson;
-    padding: 5px;
-    height: 100px;
-    width: 31.5%;
-    margin: 0px 0px 0px 200px;
-}
-
-.navItem{
-    //border: 1px solid crimson;
-    margin: 10px;
-    background-color: rgb(100, 100, 100);
-    color: white;
     padding: 20px;
-    transition: 0.3s;
 }
 
-.navItem:hover{
-    margin: 10px;
-    background-color: rgb(100, 100, 100);
+.navigator {
+	margin: 0px 0px 0px 200px;
+}
+
+h1 small{
     color: white;
-    padding: 20px;
-    color: crimson;
-    text-decoration: underline;
 }
 
-#formCont{
+.glyphicon {
+	margin: 0px 0px 0px 15px;
+}
+
+.btn{
+    margin: 0px 0px 0px 20px;
+}
+
+#rowRev{
     display: flex;
-    justify-content: center;
-    height: 40px;
+    flex-direction: row-reverse;
 }
 
-.formSearch{
-    position: relative;
-    top: 55px;
-    //border: 1px solid crimson;
-    width: 60%;
+form{
     display: flex;
-    justify-content: space-between;
+    margin: 15px 0px 0px 0px;
+    max-width: 489px;
 }
 
-.button{
-    height: 30px;
-    width: 80px;
-    margin: 10px;
+.panelCust{
+    margin: 20px 20px 20px 5.5%;
+    font-size: 1.2em;
+    max-height: 50vh;
 }
 
-#searchBar{
-    height: 25px;
-    width: 160%;
-    margin: 0px 0px 0px 0px;
+.panel-title {
+	padding: 10px;
 }
 
-footer {
-    margin: auto;
-    position: fixed;
-    width: 100%;
-    bottom: 0px;
+.panel-body{
+    overflow-y: scroll;
+    word-break: break-all;
+}
+
+.title{
+    font-size: 2em;
+}
+
+footer{
     background-color: rgb(45, 45, 45);
-    display: flex;
-    justify-content: center;
-}
-
-#sectCont{
-    display: flex;
-    justify-content: center;
-}
-
-section{
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-    width: 80%;
-    margin: 50px 0px 0px 0px;
-    //border: 1px solid crimson;
-}
-
-.card{
-    background-color: crimson;
-    margin: 10px;
-    width: 20%;
-    padding: 10px;
-}
-
-ul#footerList{
-    text-align: center;
-    padding: 2vw 0vw 2vw 0vw;
-    list-style-type: none;
-}
-
-footer ul li{
-    width: 300px;
-    text-align: center;
-    margin: 10px;
-}
-
-/*Selecting container for the header*/
-#titleCont{
-    //border: 1px solid crimson;
-    position: absolute;
-    top: 105px;
-    left: 16%;
-    background-color: rgb(100, 100, 100);
-}
-
-/*For selecting the header*/
-div h1{
-    font-size: 30px;
-}
-
-label{
     color: white;
+    font-size: 18px;
+    margin: 200px 0px 0px 0px;
 }
 
-#loginCont{
-    //border: 1px solid crimson;
-    height: 50px;
-    display: flex;
-    justify-content: center;
-    width: 300px;
-    position: absolute;
-    right: 0px;
-    top: 0px;
-}
-
-#Title{
-    margin: auto;
+footer ul{
     text-align: center;
-    padding-top: 2vw;
-    font-size: 1vw;
-    width: 50%;
-}
-
-.preview {
-    display: flex;
-    justify-content: center;
-    align-content: flex-start;
-    flex-wrap: wrap;
-}
-
-@media screen and (max-width: 480px){
-
-
-    footer{
-        font-size: 3vw;
-    }
-
-    #Title{
-        font-size: 2vw;
-    }
-  footer{
-    font-size: 3vw;
-  }
-
-  #Title{
-    font-size: 2vw;
-  }
+    padding: 20px;
+    list-style: none;
 }
