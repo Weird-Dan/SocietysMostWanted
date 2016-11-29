@@ -15,8 +15,9 @@ Write your html Here!
 {%endif%}
 {% for idea in object_list %}
 
-<div class="panel panel-default col-md-3 panelCust">
-    <p class="panel panel-title col-md-12 title"><a href="{% url 'smw:idea' idea.pk %}">                   {{idea.Title}}</a></p>
+<div class="panel panel-default col-lg-3 col-md-5 col-sm-11 col-xs-11 panelCust">
+    <p class="panel panel-title col-md-12 title"><a href="{% url 'smw:idea' idea.pk %}">{{idea.Title}}</a></p>
+>>>>>>> style
     <div class="panel-body">
         <p>{{idea.Idea}}</p>
     </div>
