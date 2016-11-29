@@ -22,7 +22,7 @@
                 <li class="navigator" role="presentation"><a href="{% url 'smw:categories' %}">Categories</a></li>
 
                 <div>
-                <form class="col-md-4 pull-right" role="search" method="post" action="{% url 'smw:search' %}">
+
 
                 {% if request.user.is_authenticated %}
 
@@ -30,23 +30,19 @@
                 <a href="{% url 'attest:detail' request.user.pk %}">@ME</a>
 
                 {% include 'attest/logout_form.html' %}
-
+                {%else%}
+                <a href="{% url 'attest:lgn'%}">Login!</a>
                 {%endif%}
                 <!--<a href="{% url 'smw:create' %}">Create</a>-->
+                <form class="col-md-4 pull-right" role="search" method="post" action="{% url 'smw:search' %}">
                     {% csrf_token %}
-                    <input type="text" name="input" class="form-control">
+                    <input type="text" name="q" class="form-control">
                     <button type="submit" name="button" class="btn btn-primary">Search</button>
                 </form>
             </div>
             </ul>
-            {% if request.user.is_authenticated %}
 
-            <a href="{% url 'smw:create' %}">Create</a>
-            <a href="{% url 'attest:detail' request.user.pk %}">@ME</a>
 
-            {% include 'attest/logout_form.html' %}
-
-            {%endif%}
             <!--<a href="{% url 'smw:create' %}">Create</a>-->
 
         {% block body %}
