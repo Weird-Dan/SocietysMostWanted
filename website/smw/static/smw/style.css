@@ -17,6 +17,12 @@ body{
     min-width: 516px;
 }
 
+h1{
+    max-width: 75%;
+    text-align: center;
+    margin: auto;
+}
+
 h1 small{
     color: white;
 }
