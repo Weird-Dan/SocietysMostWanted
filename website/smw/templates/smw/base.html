@@ -25,9 +25,7 @@
                 <form class="col-lg-4 col-md-6 col-sm-8 col-xs-12 pull-right" role="search" method="post" action="{% url 'smw:search' %}">
 
                 {% include 'attest/logout_form.html' %}
-                {%else%}
                 <a href="{% url 'attest:lgn'%}">Login!</a>
-                {%endif%}
             
                     {% if request.user.is_authenticated %}
 
