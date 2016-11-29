@@ -16,40 +16,45 @@
         <!-- create base html structure -->
         <!-- Create navbar -->
 
-            <ul class="nav nav-pills">
-                <li class="navigator" role="presentation"><a href="{% url 'smw:index' %}">SMW</a></li>
-                <li class="navigator" role="presentation"><a href="{% url 'smw:flow' %}">Flow</a></li>
-                <li class="navigator" role="presentation"><a href="{% url 'smw:categories' %}">Categories</a></li>
+        <ul class="nav nav-pills">
+            <li class="liit" role="presentation"><a href="{% url 'smw:index' %}">SMW</a></li>
+            <li class="liit" role="presentation"><a href="{% url 'smw:flow' %}">Flow</a></li>
+            <li class="liit" role="presentation"><a href="{% url 'smw:categories' %}">Categories</a></li>
 
-                <div>
-
-
-                {% if request.user.is_authenticated %}
-
-                <a href="{% url 'smw:create' %}">Create</a>
-                <a href="{% url 'attest:detail' request.user.pk %}">@ME</a>
+            <div>
+                <form class="col-lg-4 col-md-6 col-sm-8 col-xs-12 pull-right" role="search" method="post" action="{% url 'smw:search' %}">
 
                 {% include 'attest/logout_form.html' %}
-                {%else%}
                 <a href="{% url 'attest:lgn'%}">Login!</a>
-                {%endif%}
-                <!--<a href="{% url 'smw:create' %}">Create</a>-->
-                <form class="col-md-4 pull-right" role="search" method="post" action="{% url 'smw:search' %}">
+            
+                    {% if request.user.is_authenticated %}
+
+                    <a href="{% url 'smw:create' %}">Create</a>
+                    <a href="{% url 'attest:detail' request.user.pk %}">@ME</a>
+
+                    {%endif%}
+                    <!--<a href="{% url 'smw:create' %}">Create</a>-->
+                    
                     {% csrf_token %}
                     <input type="text" name="q" class="form-control">
                     <button type="submit" name="button" class="btn btn-primary""btn btn-primary">Search</button>
                 </form>
             </div>
-            </ul>
+        </ul>
+        {% if request.user.is_authenticated %}
 
+        <a href="{% url 'smw:create' %}">Create</a>
+        <a href="{% url 'userAuth:user' request.user.pk %}">@ME</a>
 
-            <!--<a href="{% url 'smw:create' %}">Create</a>-->
+        {% include 'userAuth/logout_form.html' %}
+
+        {%endif%}
 
         {% block body %}
         {% endblock %}
 
         <!-- Create Footer-->
-        <footer class="container col-md-12">
+        <footer class="container col-md-12 col-sm-12 col-xs-12">
             <ul>
                 <li>CREATED BY 4 LAZY SWEDES</li>
                 <li><a href="{% url 'smw:about' %}">ABOUT</a></li>
