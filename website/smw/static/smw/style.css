@@ -46,6 +46,7 @@ form{
 .panelCust{
     margin: 20px 20px 20px 5.5%;
     font-size: 1.2em;
+    max-height: 50vh;
 }
 
 .panel-title {
@@ -53,7 +54,7 @@ form{
 }
 
 .panel-body{
-    overflow: auto;
+    overflow-y: scroll;
     word-break: break-all;
 }
 

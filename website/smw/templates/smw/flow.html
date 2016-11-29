@@ -16,12 +16,13 @@ Write your html Here!
 {% for idea in object_list %}
 
 <div class="panel panel-default col-md-3 panelCust">
-    <p class="panel panel-title col-md-12 title"><a href="{% url 'smw:idea' idea.pk %}">{{idea.Title}}</a></p>
+    <p class="panel panel-title col-md-12 title"><a href="{% url 'smw:idea' idea.pk %}">                   {{idea.Title}}</a></p>
     <div class="panel-body">
         <p>{{idea.Idea}}</p>
     </div>
+    <!-- Hey, haha I have made a ugly solution for centering the stats with a center-tag -->
     <center>
-        <div class="panel panel-default col-md-11">
+        <div class="panel panel-default col-md-12">
             <p class="glyphicon glyphicon-thumbs-up">{{idea.Wants}}</p>
             <p class="glyphicon glyphicon-thumbs-down">{{idea.Shlts}}</p>
             <p class="glyphicon glyphicon-eye-open">{{idea.Views}}</p>
@@ -29,6 +30,7 @@ Write your html Here!
         </div>
     </center>
 </div>
+
 {%endfor%}
 
 {% endblock%}
