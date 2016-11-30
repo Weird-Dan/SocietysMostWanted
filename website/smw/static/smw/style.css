@@ -106,6 +106,20 @@ form{
     font-size: 2em;
 }
 
+.glyph{
+    background-color: green;
+    padding: 10px;
+}
+
+.glyph2{
+    background-color: crimson;
+    padding: 10px;
+}
+
+.postForms{
+    display: inline-block;
+}
+
 footer{
     background-color: rgb(45, 45, 45);
     color: white;
