@@ -14,4 +14,7 @@ urlpatterns =[
     url(r'^create/$', views.PostCreate.as_view(), name="create"),
     url(r'^cctv/$', views.CategoryCreate.as_view(), name="cctv"),
     url(r'^about', views.AboutView.as_view(), name='about'),#about
+    url(r'^cmt/(?P<pk>[0-9]+)/$', views.cmt, name='comment'),
+    url(r'^lk/(?P<pk>[0-9]+)/$', views.want, name='want'),
+    url(r'^dk/(?P<pk>[0-9]+)/$', views.shlt, name='shlt'),
 ]
