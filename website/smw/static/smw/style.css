@@ -40,6 +40,7 @@ h1 small{
     margin: 0px 0px 0px 20px;
 }
 
+
 #rowRev{
     display: flex;
     flex-direction: row-reverse;
@@ -49,6 +50,14 @@ form{
     display: flex;
     margin: 0px 0px 0px 0px;
     max-width: 475px;
+}
+
+.postForm{
+
+    display: inline-block;
+    margin: 0px 0px 0px 0px;
+    max-width: 475px;
+    padding-left: 10px;
 }
 
 .panelCust{
