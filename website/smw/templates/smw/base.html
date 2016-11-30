@@ -25,7 +25,7 @@
             <li><a href="{% url 'attest:detail' request.user.pk %}">@ME</a></li>
             <li>{% include 'attest/logout_form.html' %}</li>
             {%else%}
-            <div class="btn-group col-lg-10 col-lg-offset-1">
+            <div class="btn-group col-lg-2 col-lg-offset-2">
                 <a class="btn btn-primary" href="{% url 'attest:lgn'%}">Login</a>
             </div>
             {%endif%}
