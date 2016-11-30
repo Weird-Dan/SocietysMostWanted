@@ -27,6 +27,19 @@ body{
 .formLogOut {
     position: absolute;
     top: 13px;
+    left: 0px;
+}
+
+.formLogin{
+    position: absolute;
+    top: 150px;
+    left: 0px;
+}
+
+.formRegister{
+    position: absolute;
+    top: 250px;
+    left: 0px;
 }
 
 h1{
@@ -56,12 +69,13 @@ h1 small{
 
 form{
     display: flex;
-    margin: 0px 0px 0px 0px;
+    position: absolute;
+    right: 0px;
+    top: 13px;
     max-width: 475px;
 }
 
 .postForm{
-
     display: inline-block;
     margin: 0px 0px 0px 0px;
     max-width: 475px;
