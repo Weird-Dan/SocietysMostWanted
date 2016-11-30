@@ -14,7 +14,11 @@ body{
     background-color: rgb(45, 45, 45);
     font-size: 2em;
     padding: 20px;
-    min-width: 516px;
+    min-width: 540px;
+}
+
+.liit{
+    margin: 0px 0px 0px 0px;
 }
 
 h1{
@@ -43,7 +47,7 @@ h1 small{
 
 form{
     display: flex;
-    margin: 15px 0px 0px 0px;
+    margin: 0px 0px 0px 0px;
     max-width: 475px;
 }
 
@@ -51,6 +55,10 @@ form{
     margin: 20px 20px 20px 5.5%;
     font-size: 1.2em;
     //min-width: 380px;
+}
+
+.page-header{
+    min-width: 600px;
 }
 
 .panel-title {
@@ -79,21 +87,3 @@ footer ul{
     padding: 20px;
     list-style: none;
 }
-/*
-@media screen and (max-width: 1120px){
-    .navigator{
-        
-    }
-}
-
-@media screen and (max-width: 650px){
-    .navigator{
-        
-    }
-}
-
-@media screen and (max-width: 560px){
-    .navigaor{
-        
-    }
-}*/
