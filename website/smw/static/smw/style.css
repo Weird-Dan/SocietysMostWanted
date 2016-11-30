@@ -24,8 +24,9 @@ body{
     top: 33px;
 }
 
-.btnLogIn {
-	margin: 0px 20px 0px 0px;
+.formLogOut {
+    position: absolute;
+    top: 13px;
 }
 
 h1{
