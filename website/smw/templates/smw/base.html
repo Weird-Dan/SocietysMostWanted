@@ -7,38 +7,39 @@
         <!-- Latest compiled and minified CSS -->
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 
-        <!-- Optional theme -->
+        <!-- Bootstrap CDN import -->
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css">
         <link rel="stylesheet" type="text/css" href="{% static 'smw/style.css' %}"/>
-
     </head>
     <body>
         <!-- create base html structure -->
         <!-- Create navbar -->
 
         <ul class="nav nav-pills">
-            <li class="liit" role="presentation"><a href="{% url 'smw:index' %}">SMW</a></li>
-            <li class="liit" role="presentation"><a href="{% url 'smw:flow' %}">Flow</a></li>
-            <li class="liit" role="presentation"><a href="{% url 'smw:categories' %}">Categories</a></li>
+            <li role="presentation"><a href="{% url 'smw:index' %}">SMW</a></li>
+            <li role="presentation"><a href="{% url 'smw:flow' %}">Flow</a></li>
+            <li role="presentation"><a href="{% url 'smw:categories' %}">Categories</a></li>
 
-
-
-                {% if request.user.is_authenticated %}
-                  {% include 'attest/logout_form.html' %}
-                  <a href="{% url 'smw:create' %}">Create</a>
-                  <a href="{% url 'attest:detail' request.user.pk %}">@ME</a>
-                {%else%}
-                  <a href="{% url 'attest:lgn'%}">Login!</a>
-                {%endif%}
-            <div>
-
-                <form class="col-lg-4 col-md-6 col-sm-8 col-xs-12 pull-right" role="search" method="post" action="{% url 'smw:search' %}">    <!--<a href="{% url 'smw:create' %}">Create</a>-->
-
-                    {% csrf_token %}
-                    <input type="text" name="q" class="form-control">
-                    <button type="submit" name="button" class="btn btn-primary""btn btn-primary">Search</button>
-                </form>
+            {% if request.user.is_authenticated %}
+            <li><a href="{% url 'smw:create' %}">Create</a></li>
+            <li><a href="{% url 'attest:detail' request.user.pk %}">@ME</a></li>
+            <li>{% include 'attest/logout_form.html' %}</li>
+            {%else%}
+            
+            <div class="btn-group col-lg-1 col-lg-offset-10">
+                <a class="btn btn-primary" href="{% url 'attest:lgn'%}">Login</a>
             </div>
+            {%endif%}
+            
+            <!--<form class="col-lg-4 col-md-6 col-sm-8 col-xs-12 pull-right" role="search" method="post" action="{% url 'smw:search' %}">
+
+            <a href="{% url 'smw:create' %}">Create</a>
+
+            {% csrf_token %}
+            <input type="text" name="q" class="form-control">
+            <button type="submit" name="button" class="btn btn-primary">Search</button>
+            </form>-->
+
         </ul>
 
         {% block body %}
@@ -57,6 +58,5 @@
         <!-- Latest compiled and minified JavaScript -->
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-
     </body>
 </html>

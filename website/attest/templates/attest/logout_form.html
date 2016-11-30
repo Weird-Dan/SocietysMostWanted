@@ -1,4 +1,4 @@
-<form class="" action="{% url 'attest:logout'%}" method="post">
+<form class="formLogOut" action="{% url 'attest:logout'%}" method="post">
   {% csrf_token %}
-  <button type="submit" name="button" class"btn btn-warning">logout</button>
+  <button type="submit" name="button" class="btn btn-danger">logout</button>
 </form>
