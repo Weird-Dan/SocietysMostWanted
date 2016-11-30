@@ -17,8 +17,15 @@ body{
     min-width: 540px;
 }
 
-.liit{
-    margin: 0px 0px 0px 0px;
+.btn-group{
+    display: flex;
+    flex-direction: row-reverse;
+    position: absolute;
+    top: 33px;
+}
+
+.btnLogIn {
+	margin: 0px 20px 0px 0px;
 }
 
 h1{
