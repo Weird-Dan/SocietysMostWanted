@@ -25,23 +25,18 @@
             <li><a href="{% url 'attest:detail' request.user.pk %}">@ME</a></li>
             <li>{% include 'attest/logout_form.html' %}</li>
             {%else%}
-<<<<<<< HEAD
-            <div class="btn-group col-lg-2 col-lg-offset-2">
-=======
-            <div class="btn-group col-lg-1 col-lg-offset-10">
->>>>>>> front
+
+            <div class="btn-group col-lg-1 col-lg-offset-3">
                 <a class="btn btn-primary" href="{% url 'attest:lgn'%}">Login</a>
             </div>
             {%endif%}
             
-            <!--<form class="col-lg-4 col-md-6 col-sm-8 col-xs-12 pull-right" role="search" method="post" action="{% url 'smw:search' %}">
-
-            <a href="{% url 'smw:create' %}">Create</a>
+            <form class="col-lg-4 col-md-6 col-sm-8 col-xs-12 pull-right" role="search" method="post" action="{% url 'smw:search' %}">
 
             {% csrf_token %}
             <input type="text" name="q" class="form-control">
             <button type="submit" name="button" class="btn btn-primary">Search</button>
-            </form>-->
+            </form>
 
         </ul>
 
@@ -51,9 +46,9 @@
         <!-- Create Footer-->
         <footer class="container col-md-12 col-sm-12 col-xs-12">
             <ul>
-                <li>CREATED BY 4 LAZY SWEDES</li>
                 <li><a href="{% url 'smw:about' %}">ABOUT</a></li>
-                <li><a href="">SUPPORT</a></li>
+                <li><a href="#">SUPPORT</a></li>
+                <li>CREATED BY 4 LAZY SWEDES</li>
                 <li>THANKS FOR VISITING OUR SITE</li>
             </ul>
         </footer>
