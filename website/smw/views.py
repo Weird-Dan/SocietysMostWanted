@@ -2,7 +2,7 @@ from django.shortcuts import render, get_object_or_404, redirect
 from django.views import generic, View
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from .models import *
-
+from django.core.exceptions import ObjectDoesNotExist
 # Create your views here.
 
 """
@@ -92,3 +92,36 @@ class AboutView(generic.ListView):
 
     def get_queryset(self):
         return Post.objects.order_by('-Wants')[:6]
+"""
+create comment
+"""
+def cmt(request, pk):
+    if request.method == "POST":
+        post = Post.objects.get(id=pk)
+        user = request.user
+        text = request.POST.get("comment", None)
+        try:
+            sc = Comment.objects.get(Post=post, User=user, Text=text)
+            return redirect("smw:idea", pk=pk)
+        except ObjectDoesNotExist:
+            comment = Comment(Post=post, User=user, Text=text)
+            comment.save()
+
+    return redirect("smw:idea", pk=pk)
+
+
+def want(request, pk):
+    post = Post.objects.get(id=pk)
+    user = request.user
+    post.Wants.add(user)
+    post.Shlts.remove(user)
+    post.save()
+    return redirect("smw:idea", pk=pk)
+
+def shlt(request, pk):
+    post = Post.objects.get(id=pk)
+    user = request.user
+    post.Shlts.add(user)
+    post.Wants.remove(user)
+    post.save()
+    return redirect("smw:idea", pk=pk)
