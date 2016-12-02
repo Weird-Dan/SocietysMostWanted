@@ -14,7 +14,9 @@ class IndexView(generic.ListView):
     template_name = "smw/index.html"
 
     def get_queryset(self):
-        return Post.objects.order_by('-Views')[:6]
+        lst = list(Post.objects.all())
+        lst = sorted(lst, key=lambda x: x.Rating_value(), reverse=True)
+        return lst[:6]
 
 """
 FlowView
@@ -86,7 +88,7 @@ class PostCreate(CreateView):
         pst = Post(User=self.request.user, Category=form.cleaned_data['Category'], Title=form.cleaned_data['Title'], Idea=form.cleaned_data['Idea'], Tags=form.cleaned_data['Tags'])
         pst.save()
         print("created new post '"+form.cleaned_data['Title']+"'")
-        return redirect("smw:idea", pk=pst.pk)
+        return redirect("smw:post", pk=pst.pk)
 
 class PostUpdate(UpdateView):
     model = Post
@@ -115,12 +117,12 @@ def cmt(request, pk):
         text = request.POST.get("comment", None)
         try:
             sc = Comment.objects.get(Post=post, User=user, Text=text)
-            return redirect("smw:idea", pk=pk)
+            return redirect("smw:post", pk=pk)
         except ObjectDoesNotExist:
             comment = Comment(Post=post, User=user, Text=text)
             comment.save()
 
-    return redirect("smw:idea", pk=pk)
+    return redirect("smw:post", pk=pk)
 
 
 def want(request, pk):

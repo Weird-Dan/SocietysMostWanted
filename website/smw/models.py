@@ -49,6 +49,9 @@ class Post(models.Model):
     def Shlt_count(self):
         return self.Shlts.all().count()
 
+    def Rating_value(self):
+        return self.Want_count()-self.Shlt_count()
+
     def __str__(self):
         return self.Title
 
