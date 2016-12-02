@@ -26,9 +26,12 @@ class FlowView(generic.ListView):
     template_name = "smw/flow.html"
 
     def get_queryset(self):
-        user = self.request.user
-        lst = Post.objects.order_by("-Post_Date").exclude(Shlts=user)
-        return lst
+        if self.request.user.is_authenticated:
+            user = self.request.user
+            lst = Post.objects.order_by("-Post_Date").exclude(Shlts=user)
+            return lst
+        else:
+            return Post.objects.order_by("-Post_Date")
 
 """
 CategoryView
