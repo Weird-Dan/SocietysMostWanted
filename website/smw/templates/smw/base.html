@@ -26,19 +26,10 @@
             <li>{% include 'attest/logout_form.html' %}</li>
             {%else%}
 
-<<<<<<< HEAD
-            <div class="btn-group col-lg-1 col-lg-offset-10">
-                <a class="btn btn-primary" href="{% url 'attest:lgn'%}">Login</a>
-            </div>
-            {%endif%}
-=======
             <div class="btn-group col-lg-1 col-lg-offset-3">
                 <a class="btn btn-primary" href="{% url 'attest:lgn'%}">Login</a>
             </div>
             {%endif%}
-            
-            <form class="col-lg-4 col-md-6 col-sm-8 col-xs-12 pull-right" role="search" method="post" action="{% url 'smw:search' %}">
->>>>>>> origin/master
 
             <form class="col-lg-4 col-md-6 col-sm-8 col-xs-12 pull-right" role="search" method="post" action="{% url 'smw:search' %}">
             {% csrf_token %}
