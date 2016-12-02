@@ -39,12 +39,13 @@
             </form>
 
         </ul>
+        
+            {% block body %}
+            {% endblock %}
 
-        {% block body %}
-        {% endblock %}
 
         <!-- Create Footer-->
-        <footer class="container col-md-12 col-sm-12 col-xs-12">
+        <footer>
             <ul>
                 <li><a href="{% url 'smw:about' %}">ABOUT</a></li>
                 <li><a href="#">SUPPORT</a></li>

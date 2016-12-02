@@ -1,8 +1,30 @@
-<form class="formRegister" action="{% url 'attest:register' %}" method="post">
+<div class="container">
+  <form class="formRegister" action="{% url 'attest:register' %}" method="post">
   {% csrf_token %}
-  <input type="text" name="username" value="username" class="form-control">
-  <input type="email" name="email" value="email" class="form-control">
-  <input type="password" name="password1" value="password" class="form-control">
-  <input type="password" name="password2" value="password" class="form-control">
-  <button type="submit" name="button" class="btn btn-primary">Create user!</button>
-</form>
+  <div class="form-group row">
+    <label for="usr" class="col-sm-8 col-form-label">Username</label>
+    <div class="col-sm-10">
+      <input type="text" class="form-control" name="username" placeholder="Username">
+    </div>
+  </div>
+  <div class="form-group row">
+    <label for="email" class="col-sm-8 col-form-label">Email</label>
+    <div class="col-sm-10">
+      <input type="email" class="form-control" name="email" placeholder="example@email.com">
+    </div>
+  </div>
+  <div class="form-group row">
+    <label for="password" class="col-sm-8 col-form-label">Password</label>
+    <div class="col-sm-10">
+      <input type="password" class="form-control" name="password1" placeholder="Enter password">
+    </div>
+  </div>
+  <div class="form-group row">
+    <label for="password" class="col-sm-8 col-form-label">Confirm password</label>
+    <div class="col-sm-10">
+      <input type="password" class="form-control" name="password2" placeholder="Confirm password">
+    </div>
+  </div>
+  <button type="submit" class="btn btn-primary" name="button">Create user</button>
+    </form>
+</div>
