@@ -25,20 +25,17 @@
             <li><a href="{% url 'attest:detail' request.user.pk %}">@ME</a></li>
             <li>{% include 'attest/logout_form.html' %}</li>
             {%else%}
-            
+
             <div class="btn-group col-lg-1 col-lg-offset-10">
                 <a class="btn btn-primary" href="{% url 'attest:lgn'%}">Login</a>
             </div>
             {%endif%}
-            
-            <!--<form class="col-lg-4 col-md-6 col-sm-8 col-xs-12 pull-right" role="search" method="post" action="{% url 'smw:search' %}">
 
-            <a href="{% url 'smw:create' %}">Create</a>
-
+            <form class="col-lg-4 col-md-6 col-sm-8 col-xs-12 pull-right" role="search" method="post" action="{% url 'smw:search' %}">
             {% csrf_token %}
             <input type="text" name="q" class="form-control">
             <button type="submit" name="button" class="btn btn-primary">Search</button>
-            </form>-->
+            </form>
 
         </ul>
 

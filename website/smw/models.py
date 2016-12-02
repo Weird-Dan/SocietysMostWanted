@@ -38,7 +38,7 @@ class Post(models.Model):
     Post_Date = models.DateTimeField(default=datetime.now)
 
     def get_absolute_url(self):
-        return reverse("smw:Idea", kwargs={'pk':self.pk})
+        return reverse("smw:post", kwargs={'pk' : self.pk})
 
     def comment_count(self):
          return self.comment_set.count()

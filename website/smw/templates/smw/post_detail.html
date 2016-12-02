@@ -3,20 +3,16 @@
 
 <!--
 Write your html Here!
-
-
-This is not used any more, see post_detail.html!
-
 -->
 
 <!-- Idea-->
-<h2>{{post.Title}}</h2>
+<h2>{{object.Title}}</h2>
 <p>
-  {{post.Idea}}
+  {{object.Idea}}
 </p>
 <a href="{% url 'attest:detail' post.User.pk %}">@{{post.User.username}}</a>
 <p>
-  w{{post.Want_count}} s{{post.Shlt_count}} v{{post.Views}} Uploaded {{post.Post_Date}}
+  w{{object.Want_count}} s{{object.Shlt_count}} v{{object.Views}} Uploaded {{object.Post_Date}}
 </p>
 
 {%if request.user == post.User %}
@@ -43,7 +39,7 @@ This is not used any more, see post_detail.html!
 {% endif%}
 
 <!-- Comments-->
-{% for comment in comments %}
+{% for comment in object.comment_set.all %}
 <a href="{% url 'attest:detail' comment.User.pk %}">@{{comment.User.username}}</a>
   <p>
     {{comment.Text}}
