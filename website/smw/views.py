@@ -1,6 +1,7 @@
 from django.shortcuts import render, get_object_or_404, redirect
 from django.views import generic, View
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
+from django.views.generic.detail import DetailView
 from .models import *
 from django.core.exceptions import ObjectDoesNotExist
 # Create your views here.
@@ -13,7 +14,9 @@ class IndexView(generic.ListView):
     template_name = "smw/index.html"
 
     def get_queryset(self):
-        return Post.objects.order_by('-Wants')[:6]
+        lst = list(Post.objects.all())
+        lst = sorted(lst, key=lambda x: x.Rating_value(), reverse=True)
+        return lst[:6]
 
 """
 FlowView
@@ -45,6 +48,8 @@ def Cat(request, pk):
     return render(request, "smw/flow.html", {"object_list":post, "category":cat})
 
 """
+
+deprecated, using PostDetail instead!
 Idea view
 a detailed view of a post
 """
@@ -79,10 +84,20 @@ class PostCreate(CreateView):
     fields = ["Category","Title", "Idea", "Tags"]
 
     def form_valid(self, form):
+
         pst = Post(User=self.request.user, Category=form.cleaned_data['Category'], Title=form.cleaned_data['Title'], Idea=form.cleaned_data['Idea'], Tags=form.cleaned_data['Tags'])
         pst.save()
         print("created new post '"+form.cleaned_data['Title']+"'")
-        return redirect("smw:index")
+        return redirect("smw:post", pk=pst.pk)
+
+class PostUpdate(UpdateView):
+    model = Post
+    fields = ["Category", "Title", "Idea", "Tags"]
+
+class PostDetail(DetailView):
+    model = Post
+
+
 
 """
 AboutView
@@ -102,12 +117,12 @@ def cmt(request, pk):
         text = request.POST.get("comment", None)
         try:
             sc = Comment.objects.get(Post=post, User=user, Text=text)
-            return redirect("smw:idea", pk=pk)
+            return redirect("smw:post", pk=pk)
         except ObjectDoesNotExist:
             comment = Comment(Post=post, User=user, Text=text)
             comment.save()
 
-    return redirect("smw:idea", pk=pk)
+    return redirect("smw:post", pk=pk)
 
 
 def want(request, pk):
