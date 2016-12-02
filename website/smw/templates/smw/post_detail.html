@@ -17,22 +17,29 @@ Write your html Here!
 
 {%if request.user == post.User %}
 <a href="{% url 'smw:update_post' post.pk %}">edit</a>
+<form class="col-lg-4" action="{% url 'smw:delete' post.pk %}" method="post">
+  {% csrf_token %}
+  <button type="submit" name="button" class="btn btn-danger">Delete</button>
+</form>
 {%endif%}
 <!-- comment-->
 {% if request.user.is_authenticated%}
+
+<form class="col-lg-4" action="{% url 'smw:want' post.pk %}" method="post">
+  {% csrf_token %}
+  <button type="submit" name="button" class="btn btn-success">Like</button>
+</form>
+
+<form class="col-lg-4" action="{% url 'smw:shlt' post.pk %}" method="post">
+  {% csrf_token %}
+  <button type="submit" name="button" class="btn btn-danger">Dislike</button>
+</form>
+
 <h4>Comment!</h4>
-<form class="" action="{% url 'smw:want' post.pk %}" method="post">
+<form class="col-lg-4" action="{% url 'smw:comment' post.pk %}" method="post">
   {% csrf_token %}
-  <button type="submit" name="button">Like</button>
-</form>
-<form class="" action="{% url 'smw:shlt' post.pk %}" method="post">
-  {% csrf_token %}
-  <button type="submit" name="button">Dislike</button>
-</form>
-<form class="" action="{% url 'smw:comment' post.pk %}" method="post">
-  {% csrf_token %}
-  <input type="text" name="comment" value="">
-  <button type="submit" name="button">Comment</button>
+  <input type="text" name="comment" class="form-control">
+  <button type="submit" name="button" class="btn btn-primary">Comment</button>
 </form>
 {% else %}
 <h5>Login to Comment!</h5>

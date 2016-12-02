@@ -136,7 +136,7 @@ def want(request, pk):
     post.Wants.add(user)
     post.Shlts.remove(user)
     post.save()
-    return redirect("smw:idea", pk=pk)
+    return redirect("smw:post", pk=pk)
 
 def shlt(request, pk):
     post = Post.objects.get(id=pk)
@@ -144,4 +144,12 @@ def shlt(request, pk):
     post.Shlts.add(user)
     post.Wants.remove(user)
     post.save()
-    return redirect("smw:idea", pk=pk)
+    return redirect("smw:post", pk=pk)
+
+def delete(request, pk):
+    post = Post.objects.get(id=pk)
+    if post.User == request.user:
+        post.delete()
+        return redirect("smw:index")
+    else:
+        return redirect("smw:post", pk=pk)

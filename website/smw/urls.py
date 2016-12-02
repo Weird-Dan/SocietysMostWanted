@@ -19,4 +19,5 @@ urlpatterns =[
     url(r'^dk/(?P<pk>[0-9]+)/$', views.shlt, name='shlt'),
     url(r'^ud/(?P<pk>[0-9]+)/$', views.PostUpdate.as_view(), name='update_post'),
     url(r'^post/(?P<pk>[0-9]+)/$', views.PostDetail.as_view(), name='post'),
+    url(r'^dl/(?P<pk>[0-9]+)/$', views.delete, name='delete'),
 ]
