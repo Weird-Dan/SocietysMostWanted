@@ -1,55 +1,57 @@
 {% extends 'smw/base.html' %}
 {% block body %}
 
-<!--
-Write your html Here!
--->
-
 <!-- Idea-->
+<div class="container postColFix panel panel-default">
+    <div class="panel-body">
+        <h2>{{post.Title}}</h2>
+        <p>{{post.Idea}}</p>  
+        <p>Uploaded {{post.Post_Date}}</p>
+        <a href="{% url 'attest:detail' post.User.pk %}">@{{post.User.username}}</a>
+        <br><br>
+        <div class="conatiner col-lg-12 postStatis panel">
+            <p class="glyphicon glyphicon-thumbs-up"> {{post.Want_count}}</p>
+            <p class="glyphicon glyphicon-thumbs-down"> {{post.Shlt_count}}</p>
+            <p class="glyphicon glyphicon-eye-open"> {{post.Views}}</p>
+        </div>
+    </div>
+</div>
 
-<h2>{{post.Title}}</h2>
-<p>{{post.Idea}}</p>
+<!-- Container for the display of the likes, dislikes and views -->
 
-<!-- This solution with the colors is temporary, will be updated later //Petri -->
-<a href="{% url 'attest:detail' post.User.pk %}">@{{post.User.username}}</a>
-<p class="glyphicon glyphicon-thumbs-up glyph"> {{post.Want_count}}</p> 
-<p class="glyphicon glyphicon-thumbs-down glyph2"> {{post.Shlt_count}}</p> 
-<p class="glyphicon glyphicon-eye-open"> {{post.Views}}
-<p>Uploaded {{post.Post_Date}}</p>
-
-<!-- comment-->
 {% if request.user.is_authenticated%}
+<div class="panel panel-default col-lg-12 likeNdislike">
+<form action="{% url 'smw:want' post.pk %}" method="post">
+    {% csrf_token %}
+    <button type="submit" name="button" class="btn btn-success">Like</button>
+</form>
 
-    <h4>Comment!</h4>
-
-    
-        <form class="col-lg-1 postForms" action="{% url 'smw:want' post.pk %}" method="post">
-            {% csrf_token %}
-            <button type="submit" name="button" class="btn btn-primary">Like</button>
-        </form>
-
-        <form class="col-lg-1 postForms" action="{% url 'smw:shlt' post.pk %}" method="post">
-            {% csrf_token %}
-            <button type="submit" name="button" class="btn btn-primary">Dislike</button>
-        </form>
-
-        <form class="col-lg-1 postForms" action="{% url 'smw:comment' post.pk %}" method="post">
-            {% csrf_token %}
-                <input type="text" name="comment" value="" >
-            <button type="submit" name="button" class="btn btn-primary">Comment</button>
-        </form>
-
+<form action="{% url 'smw:shlt' post.pk %}" method="post">
+    {% csrf_token %}
+    <button type="submit" name="button" class="btn btn-danger">Dislike</button>
+</form>
+</div>
+<!-- Form containing the input-field and the submit button for submitting comment -->
+<!--<form action="{% url 'smw:comment' post.pk %}" method="post">
+{% csrf_token %}
+<h4>Comment!</h4>
+<input type="text" placeholder="Comment" name="comment">
+<button type="submit" name="button" class="btn btn-primary">Comment</button>
+</form>
 {% else %}
 <h5>Login to Comment!</h5>
-{% endif%}
+{% endif%}-->
 
-<!-- Comments-->
+<!-- The actual comment itself-->
+
+<!--<div class="container panel panel-primary col-lg-9 col-lg-offset-2">
 {% for comment in comments %}
-<a href="{% url 'attest:detail' comment.User.pk %}">@{{comment.User.username}}</a>
-<p>{{comment.Text}}</p>
-
-<p>{{comment.Post_Date}}</p>
-
+<div class="panel-heading">
+<a href="{% url 'attest:detail' comment.User.pk %}" class="commentFontProp">@{{comment.User.username}}</a>
+<p class="commentFontProp">{{comment.Post_Date}}</p>
+</div>
+<p class="panel-body">{{comment.Text}}</p>
 {% endfor %}
+</div>-->
 
 {% endblock%}

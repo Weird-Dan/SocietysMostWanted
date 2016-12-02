@@ -106,18 +106,52 @@ form{
     font-size: 2em;
 }
 
-.glyph{
+.postStatis{
+    text-align: center;
+    color: black;
+}
+
+.glyphicon-thumbs-up{
     background-color: green;
-    padding: 10px;
+    padding: 5px;
 }
 
-.glyph2{
+.glyphicon-thumbs-down{
     background-color: crimson;
-    padding: 10px;
+    padding: 5px;
 }
 
-.postForms{
-    display: inline-block;
+.postColFix{
+    background-color: rgb(45, 45, 45);
+    color: white;
+}
+
+.likeNdislike {
+	height: 100px;
+}
+
+
+
+
+
+
+
+
+form h4{
+    font-size: 1.8em;
+}
+
+.commentForm{
+    display: flex;
+}
+
+.formCont{
+    height: 100px;
+}
+
+#userCol{
+    color: white;
+    font-size: 1.3em;
 }
 
 footer{
