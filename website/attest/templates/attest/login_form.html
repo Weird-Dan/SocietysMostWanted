@@ -1,6 +1,6 @@
-<form class="" action="{% url 'attest:login' %}" method="post">
+<form class="formLogin" action="{% url 'attest:login' %}" method="post">
   {% csrf_token %}
   <input type="text" name="username" class="form-control">
   <input type="password" name="password" class="form-control">
-  <button type="submit" name="button" class="btn btn-primary">login</button>
+  <button type="submit" name="button" class="btn btn-primary">Login</button>
 </form>

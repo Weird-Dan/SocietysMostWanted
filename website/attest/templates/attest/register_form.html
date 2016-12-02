@@ -1,4 +1,4 @@
-<form class="" action="{% url 'attest:register' %}" method="post">
+<form class="formRegister" action="{% url 'attest:register' %}" method="post">
   {% csrf_token %}
   <input type="text" name="username" value="username" class="form-control">
   <input type="email" name="email" value="email" class="form-control">
