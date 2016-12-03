@@ -4,8 +4,6 @@
 {%if request.user == post.User %}
 <a href="{% url 'smw:update_post' post.pk %}">edit</a>
 {%endif%}
-<!-- comment-->
-
 
 {% if request.user.is_authenticated%}
 
@@ -27,8 +25,9 @@
     <input type="text" placeholder="Comment" name="comment">
     <button type="submit" name="button" class="btn btn-primary">Comment</button>
 </form>
+
 {% else %}
-<h5>Login to Comment!</h5>
+    <h5>Login to Comment!</h5>
 {% endif%}
 
 <!-- The actual comment itself-->
@@ -40,6 +39,6 @@
     </div>
     <p>{{comment.Text}}</p>
 </div>
-    {% endfor %}
+{% endfor %}
 
 {% endblock%}
