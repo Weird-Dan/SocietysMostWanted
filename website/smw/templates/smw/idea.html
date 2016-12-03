@@ -1,23 +1,11 @@
 {% extends 'smw/base.html' %}
 {% block body %}
 
-<!-- Idea-->
-<div class="container postColFix panel panel-default">
-    <div class="panel-body postBody">
-        <h2>{{post.Title}}</h2>
-        <p>{{post.Idea}}</p>  
-        <p>Uploaded {{post.Post_Date}}</p>
-        <a href="{% url 'attest:detail' post.User.pk %}">@{{post.User.username}}</a>
-        <br><br>
-        <div class="conatiner col-lg-12 postStatis panel">
-            <p class="glyphicon glyphicon-thumbs-up"> {{post.Want_count}}</p>
-            <p class="glyphicon glyphicon-thumbs-down"> {{post.Shlt_count}}</p>
-            <p class="glyphicon glyphicon-eye-open"> {{post.Views}}</p>
-        </div>
-    </div>
-</div>
+{%if request.user == post.User %}
+<a href="{% url 'smw:update_post' post.pk %}">edit</a>
+{%endif%}
+<!-- comment-->
 
-<!-- Container for the display of the likes, dislikes and views -->
 
 {% if request.user.is_authenticated%}
 

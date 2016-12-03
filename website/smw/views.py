@@ -1,6 +1,7 @@
 from django.shortcuts import render, get_object_or_404, redirect
 from django.views import generic, View
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
+from django.views.generic.detail import DetailView
 from .models import *
 from django.core.exceptions import ObjectDoesNotExist
 # Create your views here.
@@ -13,7 +14,9 @@ class IndexView(generic.ListView):
     template_name = "smw/index.html"
 
     def get_queryset(self):
-        return Post.objects.order_by('-Wants')[:6]
+        lst = list(Post.objects.all())
+        lst = sorted(lst, key=lambda x: x.Rating_value(), reverse=True)
+        return lst[:6]
 
 """
 FlowView
@@ -23,7 +26,12 @@ class FlowView(generic.ListView):
     template_name = "smw/flow.html"
 
     def get_queryset(self):
-        return Post.objects.order_by("-Post_Date")
+        if self.request.user.is_authenticated:
+            user = self.request.user
+            lst = Post.objects.order_by("-Post_Date").exclude(Shlts=user)
+            return lst
+        else:
+            return Post.objects.order_by("-Post_Date")
 
 """
 CategoryView
@@ -45,6 +53,8 @@ def Cat(request, pk):
     return render(request, "smw/flow.html", {"object_list":post, "category":cat})
 
 """
+
+deprecated, using PostDetail instead!
 Idea view
 a detailed view of a post
 """
@@ -79,10 +89,20 @@ class PostCreate(CreateView):
     fields = ["Category","Title", "Idea", "Tags"]
 
     def form_valid(self, form):
+
         pst = Post(User=self.request.user, Category=form.cleaned_data['Category'], Title=form.cleaned_data['Title'], Idea=form.cleaned_data['Idea'], Tags=form.cleaned_data['Tags'])
         pst.save()
         print("created new post '"+form.cleaned_data['Title']+"'")
-        return redirect("smw:index")
+        return redirect("smw:post", pk=pst.pk)
+
+class PostUpdate(UpdateView):
+    model = Post
+    fields = ["Category", "Title", "Idea", "Tags"]
+
+class PostDetail(DetailView):
+    model = Post
+
+
 
 """
 AboutView
@@ -102,12 +122,12 @@ def cmt(request, pk):
         text = request.POST.get("comment", None)
         try:
             sc = Comment.objects.get(Post=post, User=user, Text=text)
-            return redirect("smw:idea", pk=pk)
+            return redirect("smw:post", pk=pk)
         except ObjectDoesNotExist:
             comment = Comment(Post=post, User=user, Text=text)
             comment.save()
 
-    return redirect("smw:idea", pk=pk)
+    return redirect("smw:post", pk=pk)
 
 
 def want(request, pk):
@@ -116,7 +136,7 @@ def want(request, pk):
     post.Wants.add(user)
     post.Shlts.remove(user)
     post.save()
-    return redirect("smw:idea", pk=pk)
+    return redirect("smw:post", pk=pk)
 
 def shlt(request, pk):
     post = Post.objects.get(id=pk)
@@ -124,4 +144,12 @@ def shlt(request, pk):
     post.Shlts.add(user)
     post.Wants.remove(user)
     post.save()
-    return redirect("smw:idea", pk=pk)
+    return redirect("smw:post", pk=pk)
+
+def delete(request, pk):
+    post = Post.objects.get(id=pk)
+    if post.User == request.user:
+        post.delete()
+        return redirect("smw:index")
+    else:
+        return redirect("smw:post", pk=pk)
