@@ -126,9 +126,12 @@ form{
     color: white;
 }
 
-.likeNdislike {
-	height: 100px;
+.postBody {
+	overflow: visible;
 }
+
+
+
 
 
 

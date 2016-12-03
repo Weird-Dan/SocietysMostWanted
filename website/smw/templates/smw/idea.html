@@ -3,7 +3,7 @@
 
 <!-- Idea-->
 <div class="container postColFix panel panel-default">
-    <div class="panel-body">
+    <div class="panel-body postBody">
         <h2>{{post.Title}}</h2>
         <p>{{post.Idea}}</p>  
         <p>Uploaded {{post.Post_Date}}</p>
@@ -20,38 +20,38 @@
 <!-- Container for the display of the likes, dislikes and views -->
 
 {% if request.user.is_authenticated%}
-<div class="panel panel-default col-lg-12 likeNdislike">
-<form action="{% url 'smw:want' post.pk %}" method="post">
-    {% csrf_token %}
-    <button type="submit" name="button" class="btn btn-success">Like</button>
-</form>
 
-<form action="{% url 'smw:shlt' post.pk %}" method="post">
-    {% csrf_token %}
-    <button type="submit" name="button" class="btn btn-danger">Dislike</button>
-</form>
+<div class="container col-lg-8 col-lg-offset-2">
+    <form class="container col-lg-1" action="{% url 'smw:want' post.pk %}" method="post">
+        {% csrf_token %}
+        <button type="submit" name="button" class="btn btn-success">Like</button>
+    </form>
+
+    <form class="container col-lg-1" action="{% url 'smw:shlt' post.pk %}" method="post">
+        {% csrf_token %}
+        <button type="submit" name="button" class="btn btn-danger">Dislike</button>
+    </form>
 </div>
 <!-- Form containing the input-field and the submit button for submitting comment -->
-<!--<form action="{% url 'smw:comment' post.pk %}" method="post">
-{% csrf_token %}
-<h4>Comment!</h4>
-<input type="text" placeholder="Comment" name="comment">
-<button type="submit" name="button" class="btn btn-primary">Comment</button>
+<form class="container col-lg-1" action="{% url 'smw:comment' post.pk %}" method="post">
+    {% csrf_token %}
+    <h4>Comment!</h4>
+    <input type="text" placeholder="Comment" name="comment">
+    <button type="submit" name="button" class="btn btn-primary">Comment</button>
 </form>
 {% else %}
 <h5>Login to Comment!</h5>
-{% endif%}-->
+{% endif%}
 
 <!-- The actual comment itself-->
-
-<!--<div class="container panel panel-primary col-lg-9 col-lg-offset-2">
 {% for comment in comments %}
-<div class="panel-heading">
-<a href="{% url 'attest:detail' comment.User.pk %}" class="commentFontProp">@{{comment.User.username}}</a>
-<p class="commentFontProp">{{comment.Post_Date}}</p>
+<div class="container">
+    <div>
+        <a href="{% url 'attest:detail' comment.User.pk %}">@{{comment.User.username}}</a>
+        <p>{{comment.Post_Date}}</p>
+    </div>
+    <p>{{comment.Text}}</p>
 </div>
-<p class="panel-body">{{comment.Text}}</p>
-{% endfor %}
-</div>-->
+    {% endfor %}
 
 {% endblock%}
