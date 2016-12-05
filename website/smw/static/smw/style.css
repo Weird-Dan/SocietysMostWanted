@@ -50,8 +50,19 @@ body{
     padding-left: 10px;
     display: inline-block;
     max-width: 475px;
-    color: #EEEDDD;
+    color: #EEEDDD;     
+}
 
+@media screen and (min-width: 700px){
+    
+    .formLogin{
+        margin-left: 40%;
+        padding-right: 0px;
+    }
+
+    .formRegister{
+        margin-left: 40%;
+    }
 }
 
 .formRegister .btn {
