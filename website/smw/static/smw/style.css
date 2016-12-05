@@ -26,8 +26,6 @@ body{
 .btn-group{
     display: flex;
     flex-direction: row-reverse;
-    position: absolute;
-    top: 33px;
 }
 
 .formLogOut {
@@ -94,6 +92,12 @@ h1 small{
 
 .btn{
     margin: 0px 0px 0px 15px;
+}
+
+.btn-login{
+    position: absolute;
+    top: 8px;
+    left: 0px;
 }
 
 
