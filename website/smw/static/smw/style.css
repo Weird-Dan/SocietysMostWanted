@@ -48,19 +48,8 @@ body{
     padding-left: 10px;
     display: inline-block;
     max-width: 475px;
-    color: #EEEDDD;     
-}
+    color: #EEEDDD;
 
-@media screen and (min-width: 700px){
-    
-    .formLogin{
-        margin-left: 40%;
-        padding-right: 0px;
-    }
-
-    .formRegister{
-        margin-left: 40%;
-    }
 }
 
 .formRegister .btn {
@@ -79,6 +68,15 @@ h1{
     max-width: 75%;
     text-align: center;
     margin: auto;
+    font-size: 6vw;
+}
+
+h2{
+    color: white;
+    font-style: italic;
+    text-align: center;
+    margin: auto;
+    font-size: 5vw;
 }
 
 h1 small{
@@ -116,10 +114,6 @@ form{
     margin: 20px 20px 20px 5.5%;
     font-size: 1.2em;
     //min-width: 380px;
-}
-
-.page-header{
-    min-width: 600px;
 }
 
 .panel-title {
@@ -160,16 +154,6 @@ form{
 	overflow: visible;
 }
 
-
-
-
-
-
-
-
-
-
-
 form h4{
     font-size: 1.8em;
 }
@@ -206,4 +190,59 @@ footer ul{
 
 ::-webkit-input-placeholder {
    font-style: italic;
+}
+
+.search{
+    max-width: 100px;
+    visibility: hidden;
+    padding-top: 12px;
+}
+
+
+@media screen and (max-width: 500px) {
+
+    .nav{
+        font-size: 1em;
+        padding: 5px;
+    }
+
+    .btn-login{
+        font-size: 8px;
+    }
+
+}
+
+
+@media screen and (min-width: 700px) {
+
+    .search{
+        visibility: visible;
+        max-width: 20%;
+    }
+
+    h1{
+        font-size: 4vw;
+    }
+
+    h2{
+        font-size: 3vw;
+    }
+
+
+}
+
+@media screen and (min-width: 900px) {
+   
+    .search{
+        max-width: 450px;
+        float: right;
+    }
+
+    h1{
+        font-size: 3vw;
+    }
+
+    h2{
+        font-size: 2vw;
+    }
 }
