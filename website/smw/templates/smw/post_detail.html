@@ -1,60 +1,69 @@
 {% extends 'smw/base.html' %}
 {% block body %}
 
-<!--
-Write your html Here!
--->
+<!-- Cramped the post together with bootstrap's container class and panel-class to make it more readable -->
+<div class="container panel panel-default">
+    <div class="panel-heading">
+        <h2 class="panel-title">{{object.Title}}</h2>
+    </div>
+    <p class="text-justify">{{object.Idea}}</p>
+    <a href="{% url 'attest:detail' post.User.pk %}">@{{post.User.username}}</a>
+    <p>Uploaded {{object.Post_Date}}</p>
+    <div class="panel panel-default text-center">             <!-- Used boostrap's own glyphicons -->
+        <p class="glyphicon glyphicon-thumbs-up"> {{object.Want_count}}</p> 
+        <p class="glyphicon glyphicon-thumbs-down"> {{object.Shlt_count}}</p>
+        <p class="glyphicon glyphicon-eye-open"> {{object.Views}}</p>
+    </div>
+</div>
 
-<!-- Idea-->
-<h2>{{object.Title}}</h2>
-<p>
-  {{object.Idea}}
-</p>
-<a href="{% url 'attest:detail' post.User.pk %}">@{{post.User.username}}</a>
-<p>
-  w{{object.Want_count}} s{{object.Shlt_count}} v{{object.Views}} Uploaded {{object.Post_Date}}
-</p>
-
-{%if request.user == post.User %}
-<a href="{% url 'smw:update_post' post.pk %}">edit</a>
+{%if request.user == post.User %} <!-- Django if-statment for controlling if user made the post, in that case the user can edit and delete it -->
+<a href="{% url 'smw:update_post' post.pk %}">Edit</a>
 <form class="col-lg-4" action="{% url 'smw:delete' post.pk %}" method="post">
-  {% csrf_token %}
-  <button type="submit" name="button" class="btn btn-danger">Delete</button>
+    {% csrf_token %}
+    <button type="submit" name="button" class="btn btn-danger">Delete</button>
 </form>
-{%endif%}
-<!-- comment-->
-{% if request.user.is_authenticated%}
+{%endif%}   <!-- End of if-statement -->
 
-<form class="col-lg-4" action="{% url 'smw:want' post.pk %}" method="post">
-  {% csrf_token %}
-  <button type="submit" name="button" class="btn btn-success">Like</button>
-</form>
+{% if request.user.is_authenticated%} <!-- If user is authenticated commmenting will be possible -->
 
-<form class="col-lg-4" action="{% url 'smw:shlt' post.pk %}" method="post">
-  {% csrf_token %}
-  <button type="submit" name="button" class="btn btn-danger">Dislike</button>
-</form>
+<div class="container">
+    <form action="{% url 'smw:want' post.pk %}" method="post">
+        {% csrf_token %}
+        <button type="submit" name="button" class="btn btn-success">Like</button>
+    </form>
+    <!-- Bootstrap's own colorcoding class for buttons is used to indicate each of their actions' consequences -->
+    <form action="{% url 'smw:shlt' post.pk %}" method="post">
+        {% csrf_token %}
+        <button type="submit" name="button" class="btn btn-danger btn-dislike">Dislike</button>
+    </form>
+</div>
 
-<h4>Comment!</h4>
-<form class="col-lg-4" action="{% url 'smw:comment' post.pk %}" method="post">
-  {% csrf_token %}
-  <input type="text" name="comment" class="form-control">
-  <button type="submit" name="button" class="btn btn-primary">Comment</button>
-</form>
-{% else %}
-<h5>Login to Comment!</h5>
-{% endif%}
+<div class="container">
+    <h4>Comment!</h4>
+    <form action="{% url 'smw:comment' post.pk %}" method="post">
+        {% csrf_token %}
+        <input type="text" name="comment" class="form-control">
+        <button type="submit" name="button" class="btn btn-primary">Comment</button>
+    </form>
 
-<!-- Comments-->
-{% for comment in object.comment_set.all %}
-<a href="{% url 'attest:detail' comment.User.pk %}">@{{comment.User.username}}</a>
-  <p>
-    {{comment.Text}}
-  </p>
+    {% else %}                          <!-- Else this will happen/ be displayed -->
+    <h5>Login to Comment!</h5>
+    {% endif%}
+</div>
 
-  <p>
-    {{comment.Post_Date}}
-  </p>
-{% endfor %}
+{% for comment in object.comment_set.all %} <!-- Will loop through all comments and display them, refer to our serverguy for more info -->
+
+<div class="container panel panel-default">
+    <div class="panel-heading">
+        <a href="{% url 'attest:detail' comment.User.pk %}">@{{comment.User.username}}</a>
+        <p>{{comment.Post_Date}}</p>
+    </div>
+
+    <div class="panel-body">
+        <!-- Just displays the comments with post-date, username and the actuall comment -->
+        <p>{{comment.Text}}</p>
+</div>
+    </div>
+        {% endfor %} <!-- For-loop ends -->
 
 {% endblock%}

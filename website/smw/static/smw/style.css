@@ -23,13 +23,6 @@ body{
     min-width: 540px;
 }
 
-.btn-group{
-    display: flex;
-    flex-direction: row-reverse;
-    position: absolute;
-    top: 33px;
-}
-
 .formLogOut {
     position: absolute;
     top: 13px;
@@ -100,21 +93,10 @@ form{
 .panelCust{
     margin: 20px 20px 20px 5.5%;
     font-size: 1.2em;
-    //min-width: 380px;
 }
 
 .page-header{
     min-width: 600px;
-}
-
-.panel-title {
-	padding: 10px;
-}
-
-.panel-body{
-    overflow: hidden;
-    word-break: break-all;
-    max-height: 280px;
 }
 
 .title{
@@ -145,32 +127,17 @@ form{
 	overflow: visible;
 }
 
-
-
-
-
-
-
-
-
-
-
-form h4{
-    font-size: 1.8em;
+.postCont{
+    text-align: justify;
 }
 
-.commentForm{
-    display: flex;
+.text-justify{
+    text-align: justify;
 }
 
-.formCont{
-    height: 100px;
-}
 
-#userCol{
-    color: white;
-    font-size: 1.3em;
-}
+
+
 
 footer{
     position: absolute;
