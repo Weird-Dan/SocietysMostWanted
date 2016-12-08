@@ -29,32 +29,36 @@ Write your html Here!
   {% csrf_token %}
   <button type="submit" name="button" class="btn btn-success">Like</button>
 </form>
+  <form class="col-lg-4" action="{% url 'smw:shlt' post.pk %}" method="post">
+    {% csrf_token %}
+    <button type="submit" name="button" class="btn btn-danger">Dislike</button>
+  </form>
 
-<form class="col-lg-4" action="{% url 'smw:shlt' post.pk %}" method="post">
-  {% csrf_token %}
-  <button type="submit" name="button" class="btn btn-danger">Dislike</button>
-</form>
+<div id="comment">
+  <h4>Comment!</h4>
+  <form class="col-lg-4" action="{% url 'smw:comment' post.pk %}" method="post">
+    {% csrf_token %}
+    <input type="text" name="comment" class="form-control">
+    <button type="submit" name="button" class="btn btn-primary">Comment</button>
+  </form>
+  {% else %}
+  <h5>Login to Comment!</h5>
+  {% endif%}
 
-<h4>Comment!</h4>
-<form class="col-lg-4" action="{% url 'smw:comment' post.pk %}" method="post">
-  {% csrf_token %}
-  <input type="text" name="comment" class="form-control">
-  <button type="submit" name="button" class="btn btn-primary">Comment</button>
-</form>
-{% else %}
-<h5>Login to Comment!</h5>
-{% endif%}
+  <!-- Comments-->
+  <div class="comments">
+    {% for comment in object.comment_set.all %}
+    <hr>
+    <a href="{% url 'attest:detail' comment.User.pk %}">@{{comment.User.username}}</a>
+      <p>
+        {{comment.Text}}
+      </p>
 
-<!-- Comments-->
-{% for comment in object.comment_set.all %}
-<a href="{% url 'attest:detail' comment.User.pk %}">@{{comment.User.username}}</a>
-  <p>
-    {{comment.Text}}
-  </p>
-
-  <p>
-    {{comment.Post_Date}}
-  </p>
-{% endfor %}
-
+      <p>
+        {{comment.Post_Date}}
+      </p>
+      <hr>
+    {% endfor %}
+  </div>
+</div>
 {% endblock%}

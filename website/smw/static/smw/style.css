@@ -192,11 +192,24 @@ footer ul{
 }
 
 .search{
-    max-width: 100px;
-    visibility: hidden;
     padding-top: 12px;
+    float: right;
+    margin-right: 80px;
 }
 
+#comment{
+
+}
+
+.comments{
+
+
+}
+
+.logout-box{
+    width: 90px;
+    height: 50px;
+}
 
 @media screen and (max-width: 500px) {
 
@@ -209,16 +222,14 @@ footer ul{
         font-size: 8px;
     }
 
+    .btn-logout{
+        font-size: 8px;
+    }
+
 }
 
 
 @media screen and (min-width: 700px) {
-
-    .search{
-        visibility: visible;
-        max-width: 20%;
-    }
-
     h1{
         font-size: 4vw;
     }
@@ -226,16 +237,9 @@ footer ul{
     h2{
         font-size: 3vw;
     }
-
-
 }
 
 @media screen and (min-width: 900px) {
-   
-    .search{
-        max-width: 450px;
-        float: right;
-    }
 
     h1{
         font-size: 3vw;
