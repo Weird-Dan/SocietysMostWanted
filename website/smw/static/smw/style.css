@@ -20,7 +20,6 @@ body{
     background-color: rgb(45, 45, 45);
     font-size: 2em;
     padding: 20px;
-    min-width: 540px;
 }
 
 .btn-group{
@@ -193,8 +192,7 @@ footer ul{
 }
 
 .search{
-    max-width: 100px;
-    visibility: hidden;
+    float: left;
     padding-top: 12px;
 }
 
@@ -217,7 +215,6 @@ footer ul{
 
     .search{
         visibility: visible;
-        max-width: 20%;
     }
 
     h1{
