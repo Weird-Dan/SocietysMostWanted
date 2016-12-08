@@ -192,7 +192,8 @@ footer ul{
 }
 
 .search{
-    float: left;
+    max-width: 100px;
+    visibility: hidden;
     padding-top: 12px;
 }
 
@@ -215,6 +216,7 @@ footer ul{
 
     .search{
         visibility: visible;
+        max-width: 20%;
     }
 
     h1{
