@@ -223,21 +223,19 @@ footer ul{
     margin-right: 80px;
 }
 
-#comment{
-
-}
-
-.comments{
-
-
-}
-
 .logout-box{
     width: 90px;
     height: 50px;
 }
 
-@media screen and (max-width: 500px) {
+@media screen and (max-width: 390px) {
+
+    .search{
+        max-width: 300px;
+    }
+}
+
+@media screen and (max-width: 565px) {
 
     .nav{
         font-size: 1em;
@@ -251,7 +249,6 @@ footer ul{
     .btn-logout{
         font-size: 8px;
     }
-
 }
 
 

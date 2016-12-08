@@ -26,18 +26,6 @@
     </div>
 </div>
 
-<<<<<<< HEAD
-{%if request.user == post.User %} <!-- Django if-statment for controlling if user made the post, in that case the user can edit and delete it -->
-<a href="{% url 'smw:update_post' post.pk %}">Edit</a>
-<form class="col-lg-4" action="{% url 'smw:delete' post.pk %}" method="post">
-    {% csrf_token %}
-    <button type="submit" name="button" class="btn btn-danger">Delete</button>
-</form>
-{%endif%}   <!-- End of if-statement -->
-
-
-=======
->>>>>>> front
 {% if request.user.is_authenticated%} <!-- If user is authenticated commmenting will be possible -->
 
 <div class="container col-lg-8 col-lg-offset-2">
