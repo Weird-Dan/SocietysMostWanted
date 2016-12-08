@@ -26,44 +26,50 @@
 
 {% if request.user.is_authenticated%} <!-- If user is authenticated commmenting will be possible -->
 
-<div class="container">
-    <form action="{% url 'smw:want' post.pk %}" method="post">
+<div class="container col-lg-8 col-lg-offset-2">
+    <form class="col-lg-1" action="{% url 'smw:want' post.pk %}" method="post">
         {% csrf_token %}
-        <button type="submit" name="button" class="btn btn-success">Like</button>
+        <button type="submit" name="button" class="btn btn-success btn-likeNdislike glyphicon glyphicon-thumbs-up"></button>
     </form>
+
     <!-- Bootstrap's own colorcoding class for buttons is used to indicate each of their actions' consequences -->
-    <form action="{% url 'smw:shlt' post.pk %}" method="post">
+
+    <form class="col-lg-2 pull-right" action="{% url 'smw:shlt' post.pk %}" method="post">
         {% csrf_token %}
-        <button type="submit" name="button" class="btn btn-danger btn-dislike">Dislike</button>
+        <button type="submit" name="button" class="btn btn-danger btn-likeNdislike glyphicon glyphicon-thumbs-down"></button>
     </form>
 </div>
 
-<div class="container">
+<div class="container col-lg-6 col-lg-offset-4">
     <h4>Comment!</h4>
-    <form action="{% url 'smw:comment' post.pk %}" method="post">
+    <form class="commentForm" role="comment" action="{% url 'smw:comment' post.pk %}" method="post">
         {% csrf_token %}
-        <input type="text" name="comment" class="form-control">
-        <button type="submit" name="button" class="btn btn-primary">Comment</button>
+        <textarea placeholder="Your comment here" type="text" name="comment" class="form-control" rows="2"></textarea>
+        <button type="submit" name="button" class="btn btn-primary">Post Comment!</button>
     </form>
 
     {% else %}                          <!-- Else this will happen/ be displayed -->
-    <h5>Login to Comment!</h5>
+    <div>
+        <h5>Login to Comment!</h5>
+    </div>
     {% endif%}
 </div>
 
-{% for comment in object.comment_set.all %} <!-- Will loop through all comments and display them, refer to our serverguy for more info -->
+<div class="top-buffer">
+    {% for comment in object.comment_set.all %} <!-- Will loop through all comments and display them, refer to our serverguy for more info -->
 
-<div class="container panel panel-default">
-    <div class="panel-heading">
-        <a href="{% url 'attest:detail' comment.User.pk %}">@{{comment.User.username}}</a>
-        <p>{{comment.Post_Date}}</p>
+    <div class="container panel panel-default col-lg-8 col-lg-offset-2">
+        <div class="panel-heading">
+            <a href="{% url 'attest:detail' comment.User.pk %}">@{{comment.User.username}}</a>
+            <p>{{comment.Post_Date}}</p>
+        </div>
+
+        <div class="panel-body">
+            <!-- Just displays the comments with post-date, username and the actuall comment -->
+            <p>{{comment.Text}}</p>
+        </div>
     </div>
 
-    <div class="panel-body">
-        <!-- Just displays the comments with post-date, username and the actuall comment -->
-        <p>{{comment.Text}}</p>
+    {% endfor %} <!-- For-loop ends -->
 </div>
-    </div>
-        {% endfor %} <!-- For-loop ends -->
-
 {% endblock%}

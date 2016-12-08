@@ -98,7 +98,6 @@ h1 small{
     left: 0px;
 }
 
-
 #rowRev{
     display: flex;
     flex-direction: row-reverse;
@@ -115,10 +114,8 @@ form{
     font-size: 1.2em;
 }
 
-
 .page-header{
     min-width: 600px;
-
 }
 
 .panel-title {
@@ -171,6 +168,29 @@ form h4{
     text-align: justify;
 }
 
+.top-buffer {
+    margin-top: 200px;
+}
+
+.commentForm{
+    width: 100%;
+}
+
+.btn-likeNdislike{
+    width: 100%;
+    min-width: 100px;
+    max-width: 100px;
+    height: 20%;
+    font-size: 1.6em;
+}
+
+div h5{
+    font-size: 2em;
+    text-align: center;
+    position: absolute;
+    top: 350px;
+    left: 40%;
+}
 
 
 
