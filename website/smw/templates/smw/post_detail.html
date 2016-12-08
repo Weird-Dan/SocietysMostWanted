@@ -14,15 +14,17 @@
         <p class="glyphicon glyphicon-thumbs-down"> {{object.Shlt_count}}</p>
         <p class="glyphicon glyphicon-eye-open"> {{object.Views}}</p>
     </div>
+    
+    {%if request.user == post.User %} <!-- Django if-statment for controlling if user made the post, in that case the user can edit and delete it -->
+    <div class="container col-lg-2 col-lg-offset-10 managePostCont">
+    <form class="col-lg-4" action="{% url 'smw:delete' post.pk %}" method="post">
+        <a class="btn btn-primary" href="{% url 'smw:update_post' post.pk %}">Edit</a>
+        {% csrf_token %}
+        <button type="submit" name="button" class="btn btn-danger">Delete</button>
+    </form>
+    {%endif%}   <!-- End of if-statement -->
+    </div>
 </div>
-
-{%if request.user == post.User %} <!-- Django if-statment for controlling if user made the post, in that case the user can edit and delete it -->
-<a href="{% url 'smw:update_post' post.pk %}">Edit</a>
-<form class="col-lg-4" action="{% url 'smw:delete' post.pk %}" method="post">
-    {% csrf_token %}
-    <button type="submit" name="button" class="btn btn-danger">Delete</button>
-</form>
-{%endif%}   <!-- End of if-statement -->
 
 {% if request.user.is_authenticated%} <!-- If user is authenticated commmenting will be possible -->
 
