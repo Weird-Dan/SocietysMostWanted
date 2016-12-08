@@ -23,7 +23,7 @@
             {% if request.user.is_authenticated %}
             <li><a href="{% url 'smw:create' %}">Create</a></li>
             <li><a href="{% url 'attest:detail' request.user.pk %}">@ME</a></li>
-            <li>{% include 'attest/logout_form.html' %}</li>
+            <li class="logout-box">{% include 'attest/logout_form.html' %}</li>
             {%else%}
 
             <li><a class="btn btn-login btn-primary" href="{% url 'attest:lgn'%}">Login</a>
@@ -31,7 +31,7 @@
           
             {%endif%}
 
-            <form class="col-lg-6 col-md-6 col-sm-4 col-xs-4 search" role="search" method="post" action="{% url 'smw:search' %}">
+            <form class="col-lg-4 col-md-2 col-sm-2 col-xs-4 search" role="search" method="post" action="{% url 'smw:search' %}">
             {% csrf_token %}
             <input type="text" name="q" class="form-control search-field">
             <button type="submit" name="button" class="btn btn-primary">Search</button>
