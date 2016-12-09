@@ -26,7 +26,7 @@
             <li class="logout-box">{% include 'attest/logout_form.html' %}</li>
             {%else%}
 
-            <li><a class="btn btn-login btn-primary" href="{% url 'attest:lgn'%}">Login</a>
+            <li><a class="btn btn-mini btn-login btn-primary" href="{% url 'attest:lgn'%}">Login</a>
             </li>
           
             {%endif%}
@@ -34,7 +34,7 @@
             <form class="col-lg-4 col-md-2 col-sm-2 col-xs-4 search" role="search" method="post" action="{% url 'smw:search' %}">
             {% csrf_token %}
             <input type="text" name="q" class="form-control search-field">
-            <button type="submit" name="button" class="btn btn-primary">Search</button>
+            <button type="submit" name="button" class="btn btn-mini btn-primary">Search</button>
             </form>
 
         </ul>

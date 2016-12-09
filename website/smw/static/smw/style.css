@@ -92,9 +92,7 @@ h1 small{
 }
 
 .btn-login{
-    position: absolute;
     top: 8px;
-    left: 0px;
 }
 
 #rowRev{
@@ -182,9 +180,6 @@ form h4{
 div h5{
     font-size: 2em;
     text-align: center;
-    position: absolute;
-    top: 350px;
-    left: 40%;
 }
 
 .managePostCont {
@@ -238,12 +233,8 @@ footer ul{
         padding: 5px;
     }
 
-    .btn-login{
-        font-size: 8px;
-    }
-
-    .btn-logout{
-        font-size: 8px;
+    .btn-mini{
+        font-size: 10px;
     }
 }
 
