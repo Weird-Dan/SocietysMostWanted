@@ -1,11 +1,12 @@
 {% for idea in object_list %}
-<div class=" panel panel-default col-lg-3 col-md-5 col-sm-11 col-xs-11 panelCust">
-    <p class="panel panel-title  title"><a href="{% url 'smw:post' idea.pk %}">{{idea.Title}}</a></p>
+<div class="panel panel-default col-lg-3 col-md-5 col-sm-11 col-xs-11 panelCust">
+    <p class="panel panel-title postTitle"><a href="{% url 'smw:post' idea.pk %}">{{idea.Title}}</a></p>
     <div class="panel-body">
-        <p>{{idea.Idea}}</p>
+        <p>{{idea.Idea}}</p>    <!-- Django code for displaying the post a user have made -->
     </div>
-    <center>
+    <center>    <!-- A bad solution for centering the the statistics for the posts -->
         <div class="panel panel-default col-md-11">
+            <!-- Django code that count likes, views, comments and so on. It's put between p-tags that adds bootstraps glyphicons -->
             <p class="glyphicon glyphicon-thumbs-up"> {{idea.Want_count}}</p>
             <p class="glyphicon glyphicon-thumbs-down"> {{idea.Shlt_count}}</p>
             <p class="glyphicon glyphicon-eye-open"> {{idea.Views}}</p>

@@ -1,19 +1,16 @@
 {% extends 'smw/base.html' %}
 {% block body %}
 
-<!--
-Write your html Here!
--->
-{% if q %}
+{% if q %}         <!-- Django if-statement displaying text if you searched for something -->
 <h2>You searched for "{{q}}"</h2>
 {% endif %}
 
 {% if category %}
-  {% if category.Background_Image %}
-  <img src="{{category.Background_Image.url}}" alt="Background_Image"/>
+{% if category.Background_Image %}
+<img src="{{category.Background_Image.url}}" alt="Background_Image"/>
 
-  {% endif %}
-  <h2>Category {{category.Category}}</h2>
+{% endif %}
+<h2>Category {{category.Category}}</h2>
 {% endif %}
 
 {% include 'smw/idea_list.html'%}

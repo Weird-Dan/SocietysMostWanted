@@ -2,7 +2,7 @@
 {% block body %}
 
 
-    <form class="" action="" method="post" enctype="multipart/form-data">
+    <form method="post" enctype="multipart/form-data">
       {% csrf_token %}
       {% include 'smw/form_template.html' %}
             <button type="submit" name="">Submit</button>

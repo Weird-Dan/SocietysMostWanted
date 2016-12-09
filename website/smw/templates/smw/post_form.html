@@ -1,12 +1,11 @@
 {% extends 'smw/base.html' %}
 {% block body %}
 
-
-    <form class="formPost col-lg-4" action="" method="post" enctype="multipart/form-data">
-	    {% csrf_token %}
-	    {% include 'smw/form_template.html' %}
-    		<button type="submit" class="formPost btn btn-primary" name="">Submit</button>
-
-    </form>
+<!-- Another form-template -->
+<form class="formPost col-lg-4" method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    {% include 'smw/form_template.html' %}
+    <button type="submit" class="formPost btn btn-primary">Submit</button>
+</form>
 
 {% endblock %}
