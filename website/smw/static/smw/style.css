@@ -123,6 +123,8 @@ form{
     /* Custom selector for rules set to the posts */
     margin: 20px 20px 20px 5.5%;
     font-size: 1.2em;
+    height: 400px;
+    overflow: hidden;
 }
 
 /* From here down to postCont are selectors for aligning and stylizing the posts */
@@ -134,11 +136,16 @@ form{
 .panel-body{
     overflow: hidden;
     word-break: break-all;
-    max-height: 280px;
+    height: 65%;
+}
+
+.panel-stats{
 }
 
 .postTitle{
     font-size: 2em;
+    height: 25%;
+    overflow: hidden;
 }
 
 .postStatis{
