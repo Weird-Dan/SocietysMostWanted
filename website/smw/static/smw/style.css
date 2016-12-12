@@ -122,6 +122,8 @@ form{
     /* Custom selector for rules set to the posts */
     margin: 0px 20px 20px 5.5%;
     font-size: 1.2em;
+    height: 400px;
+    overflow: hidden;
 }
 
 /*--------------------------------------------------------------------------------*/
@@ -136,11 +138,13 @@ form{
     overflow: hidden;
     word-break: keep-all;
     max-height: 280px;
-    
+    height: 60%;
 }
 
 .postTitle{
     font-size: 2em;
+    height: 25%;
+    overflow: hidden;
 }
 
 .postStatis{
@@ -297,5 +301,26 @@ footer ul{
 
     h2#title-small{
         font-size: 2vw;
+    }
+}
+
+@media screen and (max-width: 1200px){
+
+    .panelCust{
+        height: 300px;
+}
+
+    .panel-body{
+        height: 60%;
+    }
+}
+
+@media screen and (max-width: 550px){
+    .panelCust{
+        height: 400px;
+    }
+
+    .panel-body{
+        height: 60%;
     }
 }

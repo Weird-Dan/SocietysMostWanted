@@ -47,4 +47,4 @@ def Register(request):
                         return redirect("attest:lgn")
                 #else:
         #else:
-    return render(request, 'attest:lgn', {})
+    return redirect('attest:lgn')
