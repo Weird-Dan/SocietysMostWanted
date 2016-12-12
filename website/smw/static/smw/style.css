@@ -136,10 +136,7 @@ form{
 .panel-body{
     overflow: hidden;
     word-break: break-all;
-    height: 65%;
-}
-
-.panel-stats{
+    height: 60%;
 }
 
 .postTitle{
@@ -290,5 +287,26 @@ footer ul{
 
     h2#title-small{
         font-size: 2vw;
+    }
+}
+
+@media screen and (max-width: 1200px){
+
+    .panelCust{
+        height: 300px;
+}
+
+    .panel-body{
+        height: 60%;
+    }
+}
+
+@media screen and (max-width: 550px){
+    .panelCust{
+        height: 400px;
+    }
+
+    .panel-body{
+        height: 60%;
     }
 }
