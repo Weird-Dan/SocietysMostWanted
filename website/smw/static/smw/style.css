@@ -134,7 +134,6 @@ form{
 .panel-body{
     overflow: hidden;
     word-break: keep-all;
-    text-align: center;
     max-height: 280px;
 }
 
