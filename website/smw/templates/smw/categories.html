@@ -1,25 +1,29 @@
 {% extends 'smw/base.html' %}
 {% block body %}
 
-<!--
-Write your html Here!
--->
-
-
+<div class="container col-lg-10 col-md-10 col-sm-12 col-xs-12 col-lg-offset-1 col-md-offset-1">
+<table class="table">
+    <tr>
+        <th>Post Category</th>
+        <th>Description</th>
+        <th>Amount of posts</th>
+    </tr>
+</table>
 {% for category in object_list %}
-<div class="card">
-
-  <a href="{% url 'smw:cat' category.pk %}">{{category.Category}}</a>
+<div class="panel panel-default">
     {%if category.Icon_image%}
-      <img src="{{category.Icon_Image.url}}" alt="" />
+      <img src="{{category.Icon_Image.url}}" alt="icon" />
     {%endif%}
-  <p>
-    {{category.Description}}
-  </p>
 
-  <p>pc{{category.post_count}}</p>
+<table class="table">    
+    <tr>
+        <th><a href="{% url 'smw:cat' category.pk %}">{{category.Category}}</a></th>
+        <th>{{category.Description}}</th>
+        <th>{{category.post_count}}</th>
+    </tr>
+</table>
 </div>
-
+    
 {%endfor%}
-
+</div>
 {% endblock%}

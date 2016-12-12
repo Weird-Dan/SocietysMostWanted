@@ -8,7 +8,6 @@ html{
     margin: 0px;
     box-sizing: border-box;
     font-family: "Lucida Console", serif;
-    font-weight: 100;
 }
 
 body{
@@ -121,11 +120,13 @@ form{
 
 .panelCust{
     /* Custom selector for rules set to the posts */
-    margin: 20px 20px 20px 5.5%;
+    margin: 0px 20px 20px 5.5%;
     font-size: 1.2em;
 }
 
+/*--------------------------------------------------------------------------------*/
 /* From here down to postCont are selectors for aligning and stylizing the posts */
+/*------------------------------------------------------------------------------*/
 
 .panel-title {
 	padding: 15px;
@@ -135,6 +136,7 @@ form{
     overflow: hidden;
     word-break: keep-all;
     max-height: 280px;
+    
 }
 
 .postTitle{
@@ -210,6 +212,15 @@ div h5{
 .managePostCont {
     /* Rule set to add some... puff to the comments of the posts */
     padding-bottom: 10px;
+}
+
+table{
+    font-size: 1.4em;
+    min-width: 655px;
+}
+
+th{
+    width: 30%;
 }
 
 footer{
