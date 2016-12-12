@@ -73,7 +73,7 @@ body{
     padding-left: 10px;
 }
 
-h1{
+h1#title-big{
     /* Have no fucking clue what dis does... */
     max-width: 75%;
     text-align: center;
@@ -81,7 +81,7 @@ h1{
     font-size: 6vw;
 }
 
-h2{
+h2#title-small{
     /*... or this one either */
     color: white;
     font-style: italic;
@@ -92,7 +92,7 @@ h2{
 
 .glyphicon {
     /* For Bootstrap glyphicons */
-	margin: 0px 0px 0px 15px;
+    margin: 0px 0px 0px 15px;
 }
 
 .btn{
@@ -126,12 +126,9 @@ form{
 }
 
 /* From here down to postCont are selectors for aligning and stylizing the posts */
-.page-header{
-    min-width: 600px;
-}
 
 .panel-title {
-	padding: 10px;
+    padding: 10px;
 }
 
 .panel-body{
@@ -165,7 +162,7 @@ form{
 }
 
 .postBody {
-	overflow: visible;
+    overflow: visible;
 }
 
 .postCont{
@@ -209,7 +206,7 @@ div h5{
 
 .managePostCont {
     /* Rule set to add some... puff to the comments of the posts */
-	padding-bottom: 10px;
+    padding-bottom: 10px;
 }
 
 footer{
@@ -268,24 +265,23 @@ footer ul{
     }
 }
 
-
 @media screen and (min-width: 700px) {
-    h1{
+    h1#title-big{
         font-size: 4vw;
     }
 
-    h2{
+    h2#title-small{
         font-size: 3vw;
     }
 }
 
 @media screen and (min-width: 900px) {
 
-    h1{
+    h1#title-big{
         font-size: 3vw;
     }
 
-    h2{
+    h2#title-small{
         font-size: 2vw;
     }
 }
