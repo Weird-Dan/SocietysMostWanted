@@ -152,11 +152,13 @@ form{
 .glyphicon-thumbs-up{
     background-color: green;
     padding: 5px;
+    border-radius: 15px;
 }
 
 .glyphicon-thumbs-down{
     background-color: crimson;
     padding: 5px;
+    border-radius: 15px;
 }
 
 .postColFix{
