@@ -31,6 +31,10 @@ body{
     padding-top: 12px;
     float: right;
     margin-right: 80px;
+<<<<<<< HEAD
+=======
+    min-width: 425px;
+>>>>>>> d782e7abba6ac498322feace460020430624601c
 }
 
 .logout-box{
