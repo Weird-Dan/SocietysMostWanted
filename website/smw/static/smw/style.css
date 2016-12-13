@@ -31,10 +31,7 @@ body{
     padding-top: 12px;
     float: right;
     margin-right: 80px;
-<<<<<<< HEAD
-=======
     min-width: 425px;
->>>>>>> d782e7abba6ac498322feace460020430624601c
 }
 
 .logout-box{
@@ -56,30 +53,33 @@ body{
     left: 0px;
 }
 
-.formLogin{
-    /* Are set to align the form for the login */
-    position: absolute;
-    top: 150px;
-    left: -5px;
-}
-
 .formRegister{
-    /* Rules set to align and set the form for registering a new account */
+    /* Rules set to align and set the form for registering a new account/login */
     position: absolute;
-    top: 250px;
-    left: 0;
-    margin: 0px 0px 0px 0px;
-    padding-left: 10px;
     display: inline-block;
     max-width: 475px;
     color: #EEEDDD;
+    width: 100%;
+    top: 15px;
 
 }
 
-.formRegister .btn {
-    /* Rules to align button for registerng a new account */
+.formRegister .btn{
+    /* Rules to align button for registerng a new account/login */
     margin: 0px;
-    width: 295px;
+    width: 100%;
+}
+
+
+.form-background{
+    /* Rules set to stylize the background & border of registration/login forms*/
+    border-spacing: 1px;
+    border-radius: 5px;
+    border-style: double;
+    border-color: #CFB53B;
+    padding-left: 70px;
+    padding-bottom: 5px;
+    background-color: rgb(80, 80, 80);
 }
 
 .formPost{

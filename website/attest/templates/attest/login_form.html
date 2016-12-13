@@ -1,12 +1,27 @@
-<form class="form-inline formLogin" action="{% url 'attest:login' %}" method="post">
+<div class="container">
+  <form class="formRegister form-background" action="{% url 'attest:register' %}" method="post">
   {% csrf_token %}
-  <div class="form-group col-sm-5">
-    <label class="sr-only" for="usr">Username</label>
-    <input type="text" class="form-control" name="username" placeholder="Enter username">
+  <h1 id="title-big-margin">Login</h1>
+  <div class="form-group row">
+    <label for="usr" class="col-sm-8 col-form-label">Username</label>
+    <div class="col-sm-10">
+      <input type="text" class="form-control" name="username" placeholder="Enter username">
+    </div>
   </div>
-  <div class="form-group col-sm-5">
-    <label class="sr-only" for="pwd">Password</label>
-    <input type="password" class="form-control" name="password" placeholder="Password">
+  <div class="form-group row">
+    <label for="password" class="col-sm-8 col-form-label">Password</label>
+    <div class="col-sm-10">
+      <input type="password" class="form-control" name="password" placeholder="Password">
+    </div>
   </div>
-  <button type="submit" class="btn btn-primary" name="button">Login</button>
-</form>
+  <div class="form-group row">
+    <div class="col-sm-10">
+      <button type="submit" class="btn btn-primary" name="button">Login</button>
+    </div>
+  </div>
+    </form>
+</div>
+
+
+
+
