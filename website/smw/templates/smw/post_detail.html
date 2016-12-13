@@ -6,7 +6,7 @@
     <div class="panel-heading">
         <h2 class="panel-title">{{object.Title}}</h2>
     </div>
-    <p class="text-justify">{{object.Idea}}</p>
+    <p class="text-justify postBod">{{object.Idea}}</p>
     <a href="{% url 'attest:detail' post.User.pk %}">@{{post.User.username}}</a>
     <p>Uploaded {{object.Post_Date}}</p>
     <div class="panel panel-default text-center">             <!-- Used boostrap's own glyphicons -->
