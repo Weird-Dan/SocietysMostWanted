@@ -31,7 +31,7 @@
 
             {%endif%}
 
-            <form class="col-lg-5 col-md-5 col-sm-6 col-xs-12 search" role="search" method="post" action="{% url 'smw:search' %}">
+            <form class="col-lg-5 col-md-5 col-sm-6 col-xs-8 search" role="search" method="post" action="{% url 'smw:search' %}">
                 {% csrf_token %}
                 <input type="text" name="q" class="form-control search-field">
                 <button type="submit" name="button" class="btn btn-mini btn-primary">Search</button>

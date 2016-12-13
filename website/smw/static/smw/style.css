@@ -31,8 +31,6 @@ body{
     padding-top: 12px;
     float: right;
     margin-right: 80px;
-    border: 1px solid crimson;
-    min-width: 425px;
 }
 
 .logout-box{
@@ -271,12 +269,23 @@ footer ul{
 
 @media screen and (max-width: 390px) {
 
+    .nav{
+        margin-left: -10px;
+    }
+
     .search{
-        max-width: 300px;
+        float: left;
     }
 }
 
-@media screen and (max-width: 565px) {
+@media screen and (max-width: 420px) {
+    .search{
+        max-width: 333px;
+    }
+
+}
+
+@media screen and (max-width: 495px) {
 
     .nav{
         font-size: 1em;
@@ -285,6 +294,14 @@ footer ul{
 
     .btn-mini{
         font-size: 10px;
+    }
+}
+
+
+@media screen and (max-width: 540px) {
+
+    .search{
+        float: left;
     }
 }
 
