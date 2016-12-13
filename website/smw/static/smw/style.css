@@ -104,6 +104,14 @@ h2#title-small{
     font-size: 5vw;
 }
 
+h2#searched{
+    text-align: center;
+}
+
+h2#myname{
+    text-align: center;
+}
+
 .glyphicon {
     /* For Bootstrap glyphicons */
     margin: 0px 0px 0px 15px;
