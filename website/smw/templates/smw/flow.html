@@ -2,7 +2,7 @@
 {% block body %}
 
 {% if q %}         <!-- Django if-statement displaying text if you searched for something -->
-<h2>You searched for "{{q}}"</h2>
+<h2 id="searched">You searched for "{{q}}"</h2>
 {% endif %}
 
 {% if category %}
