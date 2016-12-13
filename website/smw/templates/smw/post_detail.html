@@ -2,7 +2,7 @@
 {% block body %}
 
 <!-- Cramped the post together with bootstrap's container class and panel-class to make it more readable -->
-<div class="container panel panel-default">
+<div class="container panel panel-default postbox">
     <div class="panel-heading">
         <h2 class="panel-title">{{object.Title}}</h2>
     </div>
@@ -36,7 +36,7 @@
 
     <!-- Bootstrap's own colorcoding class for buttons is used to indicate each of their actions' consequences -->
 
-    <form class="col-lg-2 pull-right" action="{% url 'smw:shlt' post.pk %}" method="post">
+    <form class="col-lg-2 pull-right dislike" action="{% url 'smw:shlt' post.pk %}" method="post">
         {% csrf_token %}
         <button type="submit" name="button" class="btn btn-danger btn-likeNdislike glyphicon glyphicon-thumbs-down"></button>
     </form>
