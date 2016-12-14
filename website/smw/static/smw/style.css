@@ -339,6 +339,10 @@ footer ul{
         font-size: 1em;
         padding: 5px;
     }
+
+    .btn-mini{
+        font-size: 10px;
+    }
 }
 
 @media screen and (max-width: 420px) {
