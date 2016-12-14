@@ -127,8 +127,7 @@ h2#myname{
 
 .btn-login{
     /* Rules to align button for the login-form */
-    position: absolute;
-    top: 8px;
+    margin-top: 12px;
 }
 
 
@@ -307,10 +306,6 @@ footer ul{
     .nav{
         font-size: 1em;
         padding: 5px;
-    }
-
-    .btn-mini{
-        font-size: 10px;
     }
 }
 

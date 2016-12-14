@@ -25,10 +25,11 @@
             <li><a href="{% url 'attest:detail' request.user.pk %}">@ME</a></li>
             <li class="logout-box">{% include 'attest/logout_form.html' %}</li>
             {%else%}
-
-            <li><a class="btn btn-mini btn-login btn-primary" href="{% url 'attest:lgn'%}">Login</a>
+            <li>
+                <form action="{% url 'attest:lgn'%}">
+                    <button class="btn btn-login btn-primary">Login</button>
+                </form>
             </li>
-
             {%endif%}
 
             <form class="col-lg-5 col-md-5 col-sm-6 col-xs-8 search" role="search" method="post" action="{% url 'smw:search' %}">
