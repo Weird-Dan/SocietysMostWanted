@@ -58,12 +58,13 @@ body{
 
 .formRegister{
     /* Rules set to align and set the form for registering a new account/login */
-    position: absolute;
+    position: relative;
     display: inline-block;
     max-width: 475px;
     color: #EEEDDD;
     width: 100%;
     top: 15px;
+    margin-bottom: 30px;
 }
 
 .formRegister .btn{
@@ -71,7 +72,6 @@ body{
     margin: 0px;
     width: 100%;
 }
-
 
 .form-background{
     /* Rules set to stylize the background & border of registration/login forms*/
