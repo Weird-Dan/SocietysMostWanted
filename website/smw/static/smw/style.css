@@ -86,10 +86,11 @@ body{
 
 .formPost{
     /* Rules set to stylize the form for registering a new account */
-    display: inline-block;
-    margin: 0px 0px 0px 0px;
-    max-width: 475px;
-    padding-left: 10px;
+}
+
+.formTemp{
+    display: inline-flex;
+    justify-content: center;
 }
 
 h1#title-big{
@@ -259,6 +260,12 @@ table{
 
 th{
     width: 30%;
+}
+
+.profilePanel{
+    margin-top: 30px;
+    text-align: center;
+    text-transform: capitalize;
 }
 
 footer{
