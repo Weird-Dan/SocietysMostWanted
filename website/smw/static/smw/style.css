@@ -52,6 +52,10 @@ body{
     left: 0px;
 }
 
+.loginHead{
+    text-align: center;
+}
+
 .formRegister{
     /* Rules set to align and set the form for registering a new account/login */
     position: absolute;
@@ -60,7 +64,6 @@ body{
     color: #EEEDDD;
     width: 100%;
     top: 15px;
-
 }
 
 .formRegister .btn{
