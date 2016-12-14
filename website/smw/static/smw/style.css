@@ -164,7 +164,7 @@ form{
     overflow: hidden;
     word-break: keep-all;
     max-height: 280px;
-    height: 50%;
+    height: 55%;
 }
 
 .postTitle{
@@ -281,63 +281,6 @@ footer ul{
    font-style: italic;
 }
 
-/* Downwards are rules set to manage the navbar at different screensizes */
-
-@media screen and (max-width: 390px) {
-
-    .nav{
-        margin-left: -10px;
-    }
-
-    .search{
-        float: left;
-    }
-}
-
-@media screen and (max-width: 420px) {
-    .search{
-        max-width: 333px;
-    }
-
-}
-
-@media screen and (max-width: 495px) {
-
-    .nav{
-        font-size: 1em;
-        padding: 5px;
-    }
-}
-
-
-@media screen and (max-width: 540px) {
-
-    .search{
-        float: left;
-    }
-}
-
-@media screen and (min-width: 700px) {
-    h1#title-big{
-        font-size: 4vw;
-    }
-
-    h2#title-small{
-        font-size: 3vw;
-    }
-}
-
-@media screen and (min-width: 900px) {
-
-    h1#title-big{
-        font-size: 3vw;
-    }
-
-    h2#title-small{
-        font-size: 2vw;
-    }
-}
-
 @media screen and (max-width: 1200px){
 
     .panelCust{
@@ -352,6 +295,31 @@ footer ul{
 
         margin-top: -43px;
     }
+
+    .panel-body{
+        height: 55%;
+    }
+}
+
+@media screen and (min-width: 900px) {
+
+    h1#title-big{
+        font-size: 3vw;
+    }
+
+    h2#title-small{
+        font-size: 2vw;
+    }
+}
+
+@media screen and (min-width: 700px) {
+    h1#title-big{
+        font-size: 4vw;
+    }
+
+    h2#title-small{
+        font-size: 3vw;
+    }
 }
 
 @media screen and (max-width: 550px){
@@ -364,3 +332,39 @@ footer ul{
     }
 }
 
+@media screen and (max-width: 540px) {
+
+    .search{
+        float: left;
+    }
+}
+
+@media screen and (max-width: 495px) {
+
+    .nav{
+        font-size: 1em;
+        padding: 5px;
+    }
+}
+
+@media screen and (max-width: 420px) {
+    .search{
+        max-width: 333px;
+    }
+
+}
+
+@media screen and (max-width: 390px) {
+
+    .nav{
+        margin-left: -10px;
+    }
+
+    .search{
+        float: left;
+    }
+
+    .panel-body{
+        height: 55%;
+    }
+}
