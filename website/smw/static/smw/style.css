@@ -264,8 +264,8 @@ th{
 
 .profilePanel{
     margin-top: 30px;
-    text-align: center;
     text-transform: capitalize;
+    text-decoration: underline;
 }
 
 footer{
