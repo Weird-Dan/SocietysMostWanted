@@ -283,21 +283,9 @@ footer ul{
 
 @media screen and (max-width: 1200px){
 
-    .panelCust{
-        height: 300px;
-}
-
-    .panel-body{
-        height: 60%;
-    }
-
     .dislike{
 
         margin-top: -43px;
-    }
-
-    .panel-body{
-        height: 55%;
     }
 }
 
@@ -326,10 +314,6 @@ footer ul{
     .panelCust{
         height: 400px;
     }
-
-    .panel-body{
-        height: 60%;
-    }
 }
 
 @media screen and (max-width: 540px) {
@@ -351,7 +335,6 @@ footer ul{
     .search{
         max-width: 333px;
     }
-
 }
 
 @media screen and (max-width: 390px) {
@@ -362,9 +345,5 @@ footer ul{
 
     .search{
         float: left;
-    }
-
-    .panel-body{
-        height: 55%;
     }
 }
