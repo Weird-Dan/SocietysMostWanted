@@ -160,9 +160,6 @@ form{
 /* From here down to postCont are selectors for aligning and stylizing the posts */
 /*------------------------------------------------------------------------------*/
 
-.panel-title {
-	padding: 15px;
-}
 
 .panel-body{
     overflow: hidden;
@@ -172,14 +169,21 @@ form{
 }
 
 .postTitle{
+    padding: 15px;
     font-size: 2em;
-    height: 25%;
+    max-height: 125px;
     overflow: hidden;
 }
 
 .postStatis{
     text-align: center;
     color: black;
+}
+
+.panel-stats{
+    position: absolute;
+    bottom: 0px;
+    left: 0px;
 }
 
 .postBod{
