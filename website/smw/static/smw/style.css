@@ -132,6 +132,9 @@ h2#myname{
 .btn-login{
     /* Rules to align button for the login-form */
     margin-top: 12px;
+    /* Rules to always display the loginbutton on top of everything */
+    position: relative;
+    z-index: 1;
 }
 
 
@@ -298,7 +301,6 @@ footer ul{
 @media screen and (max-width: 1200px){
 
     .dislike{
-
         margin-top: -43px;
     }
 }
@@ -315,6 +317,7 @@ footer ul{
 }
 
 @media screen and (min-width: 700px) {
+    
     h1#title-big{
         font-size: 4vw;
     }
@@ -325,16 +328,14 @@ footer ul{
 }
 
 @media screen and (max-width: 550px){
+    
     .panelCust{
         height: 400px;
     }
 }
 
 @media screen and (max-width: 540px) {
-
-    .search{
-        float: left;
-    }
+    
 }
 
 @media screen and (max-width: 495px) {
@@ -350,6 +351,7 @@ footer ul{
 }
 
 @media screen and (max-width: 420px) {
+    
     .search{
         max-width: 333px;
     }
@@ -360,8 +362,8 @@ footer ul{
     .nav{
         margin-left: -10px;
     }
-
+    
     .search{
-        float: left;
+        
     }
 }
