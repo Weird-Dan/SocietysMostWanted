@@ -269,6 +269,23 @@ th{
     text-decoration: underline;
 }
 
+#about{
+    margin-top: 50px;
+}
+
+.aboutContent{
+    max-width: 75%;
+    margin: auto;
+    text-align: center;
+    border-spacing: 1px;
+    border-radius: 5px;
+    border-style: double;
+    border-color: #CFB53B;
+    padding-left: 50px;
+    padding-right: 50px;
+    background-color: rgb(80, 80, 80);
+}
+
 footer{
     /* Rules set for the footer... duh..*/
     position: absolute;
@@ -325,6 +342,10 @@ footer ul{
     
     .panelCust{
         height: 400px;
+    }
+    .aboutContent{
+        padding-left: 0px;
+        padding-right: 0px;
     }
 }
 
